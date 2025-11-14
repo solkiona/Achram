@@ -237,7 +237,10 @@
                     <a href="#features" class="text-gray-700 hover:text-emerald-600 font-medium">Features</a>
                     <a href="#how-it-works" class="text-gray-700 hover:text-emerald-600 font-medium">How It Works</a>
                     <a href="#airports" class="text-gray-700 hover:text-emerald-600 font-medium">Airports</a>
-                    <button onclick="changePage('faqs')" class="text-gray-700 hover:text-emerald-600 font-medium">FAQs</button>
+                    <a href="#faqs" class="no-decoration"> 
+                        <button type="button" onclick="changePage('faqs')" class="text-gray-700 hover:text-emerald-600 font-medium">FAQs</button>
+                    </a>
+                    
                     <button onclick="changePage('home')" class="px-6 py-2.5 bg-gradient-primary text-white rounded-xl hover:shadow-lg font-medium flex items-center space-x-2">
                         <span>Book Now</span>
                         <i class="fas fa-arrow-right text-xs"></i>
@@ -255,9 +258,21 @@
                 <a href="#features" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2">Features</a>
                 <a href="#how-it-works" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2">How It Works</a>
                 <a href="#airports" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2">Airports</a>
-                <button onclick="changePage('faqs'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">FAQs</button>
-                <button onclick="changePage('privacy'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">Privacy</button>
-                <button onclick="changePage('terms'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">Terms</button>
+                 <a href="#faqs" class="no-decoration"> 
+                        <button type="button" onclick="changePage('faqs'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">FAQs</button>
+                    </a>
+
+                    <a href="#privacy" class="no-decoration"> 
+                        <button onclick="changePage('privacy'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">Privacy</button>
+                    </a>
+                    
+                    <a href="#terms" class="no-decoration"> 
+
+                        <button onclick="changePage('terms'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">Terms</button>
+
+                    </a>
+                
+                
             </nav>
         </div>
     </header>
@@ -624,7 +639,7 @@
     <section id="faq-page" class="pt-32 pb-20 px-4 hidden">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-12">
-                <h1 class="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h1>
+                <h1 id="faqs" class="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h1>
                 <p class="text-lg text-gray-600">Find answers to common questions about ACHRAMS</p>
             </div>
             <div class="space-y-6">
@@ -720,7 +735,7 @@
 
     <!-- Privacy Page (Initially Hidden) -->
     <section id="privacy-page" class="pt-32 pb-20 px-4 hidden">
-        <div class="max-w-4xl mx-auto">
+        <div id="privacy" class="max-w-4xl mx-auto">
             <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100">
                 <h1 class="text-4xl font-bold text-gray-900 mb-4">ACHRAMS Privacy Policy</h1>
                 <p class="text-gray-600 mb-8">Effective Date: November 3, 2024 | Last Updated: November 3, 2024</p>
@@ -843,7 +858,7 @@
 
     <!-- Terms Page (Initially Hidden) -->
     <section id="terms-page" class="pt-32 pb-20 px-4 hidden">
-        <div class="max-w-4xl mx-auto">
+        <div id="terms" class="max-w-4xl mx-auto">
             <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100">
                 <h1 class="text-4xl font-bold text-gray-900 mb-4">Terms and Conditions</h1>
                 <p class="text-gray-600 mb-8">Effective Date: November 3, 2024 | Last Updated: November 3, 2024</p>
