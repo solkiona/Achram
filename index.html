@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACHRAMS - Official FAAN-Approved Airport Taxi Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+            --secondary-gradient: linear-gradient(135deg, #0d9488 0%, #0891b2 100%);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f9fafb 0%, #d1fae5 50%, #ccfbf1 100%);
+            min-height: 100vh;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+        }
+        .bg-gradient-secondary {
+            background: linear-gradient(135deg, #0d9488 0%, #0891b2 100%);
+        }
+        .hero-bg {
+            background-image: url('https://placehold.co/1200x800/059669/FFFFFF?text=Airport+View');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-bg-2 {
+            background-image: url('https://placehold.co/1200x800/0d9488/FFFFFF?text=City+Landscape');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-bg-3 {
+            background-image: url('https://placehold.co/1200x800/0891b2/FFFFFF?text=Taxi+Service');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-bg-4 {
+            background-image: url('https://placehold.co/1200x800/0f766e/FFFFFF?text=Safe+Travel');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-bg-5 {
+            background-image: url('https://placehold.co/1200x800/0e7490/FFFFFF?text=Airport+Pickup');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-bg-6 {
+            background-image: url('https://placehold.co/1200x800/0c4a6e/FFFFFF?text=Reliable+Service');
+            background-size: cover;
+            background-position: center;
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .step-card {
+            transition: all 0.3s ease;
+        }
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+        .testimonial-slide {
+            display: none;
+        }
+        .testimonial-slide.active {
+            display: block;
+        }
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .hero-image.active {
+            opacity: 0.5;
+        }
+        .hero-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.6) 100%);
+        }
+        .faq-item {
+            transition: all 0.3s ease;
+        }
+        .faq-item.active {
+            border-color: #059669;
+        }
+        .scroll-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .mobile-menu {
+            display: none;
+        }
+        .mobile-menu.active {
+            display: block;
+        }
+        .hero-image-container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .stats-icon {
+            width: 20px;
+            height: 20px;
+        }
+        .text-gradient-stats {
+            background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .testimonial-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #d1d5db;
+            transition: all 0.3s ease;
+        }
+        .testimonial-indicator.active {
+            background-color: #059669;
+            width: 32px;
+        }
+        .airport-status-available {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+        .airport-status-soon {
+            background-color: #ffedd5;
+            color: #c2410c;
+        }
+        .pricing-card {
+            transition: all 0.3s ease;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+        .footer-gradient {
+            background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+        }
+        .accessibility-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            padding: 16px;
+        }
+        .text-size-btn {
+            padding: 4px 8px;
+            margin: 0 2px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        .text-size-btn.active {
+            background: #059669;
+            color: white;
+        }
+        .language-select {
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
+            background: white;
+        }
+        .current-page {
+            color: #059669 !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-50 via-emerald-50/20 to-teal-50/30 text-base">
+    <!-- Accessibility Controls -->
+    <!-- <div class="accessibility-controls">
+        <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2 pr-4 border-r border-gray-200">
+                <span class="text-xs font-semibold text-gray-700">Text Size:</span>
+                <button onclick="changeTextSize('small')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200">A-</button>
+                <button onclick="changeTextSize('normal')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 active">A</button>
+                <button onclick="changeTextSize('large')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200">A+</button>
+                <button onclick="changeTextSize('xlarge')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200">A++</button>
+                <button onclick="changeTextSize('xxlarge')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200">A+++</button>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-xs font-semibold text-gray-700">Language:</span>
+                <select onchange="changeLanguage(this.value)" class="language-select">
+                    <option value="en">English</option>
+                    <option value="ha">Hausa</option>
+                    <option value="yo">Yoruba</option>
+                    <option value="ig">Igbo</option>
+                    <option value="fr">Français</option>
+                </select>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div  class="flex items-center justify-between h-20">
+                <button onclick="changePage('home')" class="flex items-center space-x-3 cursor-pointer">
+                    <div class="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center shadow-lg">
+                        <i class="fas fa-plane text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 id="top" class="text-2xl font-bold text-gradient ">ACHRAMS</h1>
+                        <p class="text-xs text-gray-600">Official Airport Taxi</p>
+                    </div>
+                </button>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <button onclick="changePage('home')" class="font-medium text-gray-700 hover:text-emerald-600 current-page">Home</button>
+                    <a href="#features" class="text-gray-700 hover:text-emerald-600 font-medium">Features</a>
+                    <a href="#how-it-works" class="text-gray-700 hover:text-emerald-600 font-medium">How It Works</a>
+                    <a href="#airports" class="text-gray-700 hover:text-emerald-600 font-medium">Airports</a>
+                    <button onclick="changePage('faqs')" class="text-gray-700 hover:text-emerald-600 font-medium">FAQs</button>
+                    <button onclick="changePage('home')" class="px-6 py-2.5 bg-gradient-primary text-white rounded-xl hover:shadow-lg font-medium flex items-center space-x-2">
+                        <span>Book Now</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </button>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden p-2 text-gray-700 hover:bg-emerald-50 rounded-lg">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden py-4 border-t border-gray-100">
+            <nav class="flex flex-col space-y-4 px-4">
+                <button onclick="changePage('home'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">Home</button>
+                <a href="#features" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2">Features</a>
+                <a href="#how-it-works" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2">How It Works</a>
+                <a href="#airports" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2">Airports</a>
+                <button onclick="changePage('faqs'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">FAQs</button>
+                <button onclick="changePage('privacy'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">Privacy</button>
+                <button onclick="changePage('terms'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">Terms</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home-page" class="pt-32 pb-20 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="hero-image active" style="background-image: url('faan_hero.jpg');"></div>
+            <div class="hero-image" style="background-image: url('faan_hero3');"></div>
+            <div class="hero-image" style="background-image: url('faan_hero4');"></div>
+            <div class="hero-image" style="background-image: url('faan_hero2.jpeg');"></div>
+            <!-- <div class="hero-image" style="background-image: url('airport_pickup.jpeg');"></div> -->
+            <div class="hero-image" style="background-image: url('faan_hero5');"></div>
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="max-w-6xl mx-auto text-center space-y-8 relative z-10">
+            <div class="inline-flex items-center space-x-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-emerald-100">
+                <i class="fas fa-check-circle text-emerald-600"></i>
+                <span class="text-sm text-gray-700 font-medium">Official FAAN-Approved Service</span>
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight drop-shadow-sm">
+                Your Safe, Reliable
+                <span class="block mt-2 text-gradient">Airport Taxi Service</span>
+            </h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto drop-shadow-sm">Official FAAN-approved taxi service with transparent pricing.</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button class="px-8 py-4 bg-gradient-primary text-white rounded-xl hover:shadow-xl font-semibold flex items-center space-x-2">
+                    <i class="fas fa-qrcode"></i>
+                    <span>Scan & Book Now</span>
+                </button>
+                <button class="px-8 py-4 bg-white text-gray-900 rounded-xl hover:shadow-lg font-semibold border border-gray-200 flex items-center space-x-2">
+                    <i class="fas fa-phone text-emerald-600"></i>
+                    <span>Contact Support</span>
+                </button>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-8 pt-8">
+                <div class="text-center">
+                    <div class="flex items-center justify-center space-x-2 mb-1">
+                        <i class="fas fa-users text-emerald-600 stats-icon"></i>
+                        <p class="text-3xl font-bold text-gradient-stats">50K+</p>
+                    </div>
+                    <p class="text-sm text-gray-600 font-medium">Happy Passengers</p>
+                </div>
+                <div class="text-center">
+                    <div class="flex items-center justify-center space-x-2 mb-1">
+                        <i class="fas fa-shield-alt text-emerald-600 stats-icon"></i>
+                        <p class="text-3xl font-bold text-gradient-stats">1,200+</p>
+                    </div>
+                    <p class="text-sm text-gray-600 font-medium">Verified Drivers</p>
+                </div>
+                <div class="text-center">
+                    <div class="flex items-center justify-center space-x-2 mb-1">
+                        <i class="fas fa-plane text-emerald-600 stats-icon"></i>
+                        <p class="text-3xl font-bold text-gradient-stats">5</p>
+                    </div>
+                    <p class="text-sm text-gray-600 font-medium">Major Airports</p>
+                </div>
+                <div class="text-center">
+                    <div class="flex items-center justify-center space-x-2 mb-1">
+                        <i class="fas fa-star text-emerald-600 stats-icon"></i>
+                        <p class="text-3xl font-bold text-gradient-stats">4.9</p>
+                    </div>
+                    <p class="text-sm text-gray-600 font-medium">Average Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-4 bg-white/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Why Choose ACHRAMS?</h2>
+                <p class="text-lg text-gray-600">Official service with guaranteed safety</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all">
+                    <div class="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-shield-alt text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">FAAN Safety</h3>
+                    <p class="text-gray-600">All drivers vetted by FAAN.</p>
+                </div>
+                <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all">
+                    <div class="w-14 h-14 bg-gradient-secondary rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-money-bill-wave text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Clear Pricing</h3>
+                    <p class="text-gray-600">No hidden fees.</p>
+                </div>
+                <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all">
+                    <div class="w-14 h-14 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-clock text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Zero Wait</h3>
+                    <p class="text-gray-600">Driver ready when you land.</p>
+                </div>
+                <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all">
+                    <div class="w-14 h-14 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-qrcode text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Scan & Book</h3>
+                    <p class="text-gray-600">No app needed.</p>
+                </div>
+                <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all">
+                    <div class="w-14 h-14 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-globe text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Multilingual</h3>
+                    <p class="text-gray-600">5 languages available.</p>
+                </div>
+                <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all">
+                    <div class="w-14 h-14 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-credit-card text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Secure Pay</h3>
+                    <p class="text-gray-600">Cards and mobile money.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">How to Book Your Ride</h2>
+                <p class="text-lg text-gray-600">Get your taxi in 4 simple steps</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="step-card bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all">
+                    <div class="flex flex-col items-center text-center space-y-4">
+                        <div class="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-xl">
+                            <span class="text-xl font-bold text-white">01</span>
+                        </div>
+                        <i class="fas fa-qrcode text-emerald-600 text-3xl"></i>
+                        <h3 class="text-lg font-bold text-gray-900">Scan QR</h3>
+                        <p class="text-sm text-gray-600">Find QR codes at airport.</p>
+                    </div>
+                </div>
+                <div class="step-card bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all">
+                    <div class="flex flex-col items-center text-center space-y-4">
+                        <div class="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-xl">
+                            <span class="text-xl font-bold text-white">02</span>
+                        </div>
+                        <i class="fas fa-map-marker-alt text-emerald-600 text-3xl"></i>
+                        <h3 class="text-lg font-bold text-gray-900">Enter Destination</h3>
+                        <p class="text-sm text-gray-600">Get instant pricing.</p>
+                    </div>
+                </div>
+                <div class="step-card bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all">
+                    <div class="flex flex-col items-center text-center space-y-4">
+                        <div class="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-xl">
+                            <span class="text-xl font-bold text-white">03</span>
+                        </div>
+                        <i class="fas fa-users text-emerald-600 text-3xl"></i>
+                        <h3 class="text-lg font-bold text-gray-900">Get Driver</h3>
+                        <p class="text-sm text-gray-600">Real-time tracking.</p>
+                    </div>
+                </div>
+                <div class="step-card bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all">
+                    <div class="flex flex-col items-center text-center space-y-4">
+                        <div class="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-xl">
+                            <span class="text-xl font-bold text-white">04</span>
+                        </div>
+                        <i class="fas fa-star text-emerald-600 text-3xl"></i>
+                        <h3 class="text-lg font-bold text-gray-900">Enjoy Ride</h3>
+                        <p class="text-sm text-gray-600">Pay securely.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-8 border border-emerald-100">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Need Help?</h3>
+                        <p class="text-gray-600">We are available 24/7.</p>
+                    </div>
+                    <button class="px-6 py-3 bg-gradient-primary text-white rounded-xl hover:shadow-lg font-semibold flex items-center space-x-2">
+                        <i class="fas fa-phone"></i>
+                        <span>Call: +234 800 ACHRAMS</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Airports Section -->
+    <section id="airports" class="py-20 px-4 bg-white/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Available at Major Airports</h2>
+                <p class="text-lg text-gray-600">Professional service</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all">
+                    <div class="flex items-start justify-between mb-4">
+                        <i class="fas fa-plane text-emerald-600 text-xl"></i>
+                        <span class="px-3 py-1 rounded-full text-xs font-semibold airport-status-available">Available</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Lagos (LOS)</h3>
+                    <p class="text-gray-600">Murtala Muhammed</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all">
+                    <div class="flex items-start justify-between mb-4">
+                        <i class="fas fa-plane text-emerald-600 text-xl"></i>
+                        <span class="px-3 py-1 rounded-full text-xs font-semibold airport-status-available">Available</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Abuja (ABV)</h3>
+                    <p class="text-gray-600">Nnamdi Azikiwe</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all">
+                    <div class="flex items-start justify-between mb-4">
+                        <i class="fas fa-plane text-emerald-600 text-xl"></i>
+                        <span class="px-3 py-1 rounded-full text-xs font-semibold airport-status-available">Available</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Kano (KAN)</h3>
+                    <p class="text-gray-600">Mallam Aminu Kano</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all">
+                    <div class="flex items-start justify-between mb-4">
+                        <i class="fas fa-plane text-emerald-600 text-xl"></i>
+                        <span class="px-3 py-1 rounded-full text-xs font-semibold airport-status-available">Available</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Port Harcourt</h3>
+                    <p class="text-gray-600">PHC Airport</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all">
+                    <div class="flex items-start justify-between mb-4">
+                        <i class="fas fa-plane text-emerald-600 text-xl"></i>
+                        <span class="px-3 py-1 rounded-full text-xs font-semibold airport-status-soon">Coming Soon</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Enugu (ENU)</h3>
+                    <p class="text-gray-600">Akanu Ibiam</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all">
+                    <div class="flex items-start justify-between mb-4">
+                        <i class="fas fa-plane text-emerald-600 text-xl"></i>
+                        <span class="px-3 py-1 rounded-full text-xs font-semibold airport-status-soon">Coming Soon</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Benin (BNI)</h3>
+                    <p class="text-gray-600">Benin Airport</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Transparent Pricing</h2>
+                <p class="text-lg text-gray-600">No hidden charges</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div class="pricing-card bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all">
+                    <div class="flex items-center justify-center w-12 h-12 bg-gradient-primary rounded-xl mb-4 mx-auto">
+                        <i class="fas fa-map-marker-alt text-white text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 text-center">Airport to City Center</h3>
+                    <p class="text-2xl font-bold text-emerald-600 text-center mb-1">₦2,500 - ₦4,500</p>
+                    <p class="text-sm text-gray-600 text-center">Approx. 20-35 mins</p>
+                </div>
+                <div class="pricing-card bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all">
+                    <div class="flex items-center justify-center w-12 h-12 bg-gradient-primary rounded-xl mb-4 mx-auto">
+                        <i class="fas fa-map-marker-alt text-white text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 text-center">Airport to Suburbs</h3>
+                    <p class="text-2xl font-bold text-emerald-600 text-center mb-1">₦4,500 - ₦8,000</p>
+                    <p class="text-sm text-gray-600 text-center">Approx. 35-50 mins</p>
+                </div>
+                <div class="pricing-card bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all">
+                    <div class="flex items-center justify-center w-12 h-12 bg-gradient-primary rounded-xl mb-4 mx-auto">
+                        <i class="fas fa-map-marker-alt text-white text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 text-center">Airport to Express</h3>
+                    <p class="text-2xl font-bold text-emerald-600 text-center mb-1">₦8,000 - ₦15,000</p>
+                    <p class="text-sm text-gray-600 text-center">Approx. 50-90 mins</p>
+                </div>
+            </div>
+            <div class="mt-8 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-6 border border-blue-100">
+                <div class="flex items-start space-x-3">
+                    <i class="fas fa-shield-alt text-blue-600 text-xl flex-shrink-0 mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-2">Price Guarantee</h4>
+                        <p class="text-gray-600">No surge pricing. All fares in Naira (₦).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-4 bg-white/50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Trusted by Thousands</h2>
+                <p class="text-lg text-gray-600">Join satisfied passengers</p>
+            </div>
+            <div class="bg-white rounded-2xl p-8 md:p-12 border border-gray-100 shadow-xl">
+                <div class="flex items-center space-x-1 mb-6">
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                </div>
+                <div id="testimonial-container">
+                    <div class="testimonial-slide active">
+                        <p class="text-xl text-gray-700 leading-relaxed mb-8 italic">Most reliable service in Nigeria.</p>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold">SJ</div>
+                            <div>
+                                <p class="font-bold text-gray-900">Sarah Johnson</p>
+                                <p class="text-sm text-gray-600">Business Traveller</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <p class="text-xl text-gray-700 leading-relaxed mb-8 italic">The QR system is brilliant.</p>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold">CO</div>
+                            <div>
+                                <p class="font-bold text-gray-900">Chinedu Okafor</p>
+                                <p class="text-sm text-gray-600">Frequent Flyer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <p class="text-xl text-gray-700 leading-relaxed mb-8 italic">Safe and transparent.</p>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold">AH</div>
+                            <div>
+                                <p class="font-bold text-gray-900">Amina Hassan</p>
+                                <p class="text-sm text-gray-600">International Visitor</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center space-x-2 mt-8">
+                    <button onclick="changeTestimonial(0)" class="testimonial-indicator active"></button>
+                    <button onclick="changeTestimonial(1)" class="testimonial-indicator"></button>
+                    <button onclick="changeTestimonial(2)" class="testimonial-indicator"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-gradient-primary rounded-3xl p-12 md:p-16 text-center shadow-2xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Ready for Better Experience?</h2>
+                <p class="text-xl text-emerald-50 mb-8 max-w-2xl mx-auto">Book your next ride today.</p>
+                <button class="px-10 py-4 bg-white text-emerald-600 rounded-xl hover:shadow-2xl transition-all font-bold text-lg inline-flex items-center space-x-2">
+                    <i class="fas fa-qrcode"></i>
+                    <span>Scan & Book Now</span>
+                    <i class="fas fa-arrow-right text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Page (Initially Hidden) -->
+    <section id="faq-page" class="pt-32 pb-20 px-4 hidden">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h1>
+                <p class="text-lg text-gray-600">Find answers to common questions about ACHRAMS</p>
+            </div>
+            <div class="space-y-6">
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                    <div class="bg-gradient-primary px-6 py-4">
+                        <h2 class="text-2xl font-bold text-white">Getting Started</h2>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="faq-item border border-gray-200 rounded-lg overflow-hidden">
+                            <button onclick="toggleFAQ(this)" class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <span class="font-semibold text-gray-900 text-left">What is ACHRAMS?</span>
+                                <i class="fas fa-chevron-down text-gray-400 text-lg"></i>
+                            </button>
+                            <div class="px-6 py-4 bg-white hidden">
+                                <p class="text-gray-700 leading-relaxed">ACHRAMS is Nigeria's official FAAN-approved airport car hire service. We connect you with verified, licensed drivers at major Nigerian airports through our secure booking platform.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border border-gray-200 rounded-lg overflow-hidden">
+                            <button onclick="toggleFAQ(this)" class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <span class="font-semibold text-gray-900 text-left">Which airports do you serve?</span>
+                                <i class="fas fa-chevron-down text-gray-400 text-lg"></i>
+                            </button>
+                            <div class="px-6 py-4 bg-white hidden">
+                                <p class="text-gray-700 leading-relaxed">We currently operate at: Murtala Muhammed Airport (Lagos), Nnamdi Azikiwe Airport (Abuja), Mallam Aminu Kano Airport (Kano), and Port Harcourt International Airport.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border border-gray-200 rounded-lg overflow-hidden">
+                            <button onclick="toggleFAQ(this)" class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <span class="font-semibold text-gray-900 text-left">Is ACHRAMS safe?</span>
+                                <i class="fas fa-chevron-down text-gray-400 text-lg"></i>
+                            </button>
+                            <div class="px-6 py-4 bg-white hidden">
+                                <p class="text-gray-700 leading-relaxed">Yes! All our drivers are FAAN-verified, background-checked, and licensed. Every trip includes real-time tracking and 24/7 emergency support.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                    <div class="bg-gradient-primary px-6 py-4">
+                        <h2 class="text-2xl font-bold text-white">Booking</h2>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="faq-item border border-gray-200 rounded-lg overflow-hidden">
+                            <button onclick="toggleFAQ(this)" class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <span class="font-semibold text-gray-900 text-left">How do I book a ride?</span>
+                                <i class="fas fa-chevron-down text-gray-400 text-lg"></i>
+                            </button>
+                            <div class="px-6 py-4 bg-white hidden">
+                                <p class="text-gray-700 leading-relaxed">Three easy ways: 1) Scan QR codes at airport baggage claim areas, 2) Visit www.achrams.com.ng, 3) Call +234 800 ACHRAMS</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border border-gray-200 rounded-lg overflow-hidden">
+                            <button onclick="toggleFAQ(this)" class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <span class="font-semibold text-gray-900 text-left">Do I need an account to book?</span>
+                                <i class="fas fa-chevron-down text-gray-400 text-lg"></i>
+                            </button>
+                            <div class="px-6 py-4 bg-white hidden">
+                                <p class="text-gray-700 leading-relaxed">No, you can book as a guest using QR codes. However, creating an account gives you faster checkout, trip history, and exclusive offers.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border border-gray-200 rounded-lg overflow-hidden">
+                            <button onclick="toggleFAQ(this)" class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <span class="font-semibold text-gray-900 text-left">Can I book for someone else?</span>
+                                <i class="fas fa-chevron-down text-gray-400 text-lg"></i>
+                            </button>
+                            <div class="px-6 py-4 bg-white hidden">
+                                <p class="text-gray-700 leading-relaxed">Yes! Just provide their name, phone number, and flight details when booking.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-8 border border-emerald-100">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Still Have Questions?</h3>
+                        <p class="text-gray-700 mb-6">We're here to help 24/7!</p>
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                            <a href="tel:+2348000000000" class="px-6 py-3 bg-gradient-primary text-white rounded-xl hover:shadow-lg font-semibold flex items-center space-x-2">
+                                <i class="fas fa-phone"></i>
+                                <span>Call: +234 800 ACHRAMS</span>
+                            </a>
+                            <a href="mailto:support@achrams.com.ng" class="px-6 py-3 bg-white text-gray-900 rounded-xl hover:shadow-lg font-semibold border border-gray-200 flex items-center space-x-2">
+                                <i class="fas fa-envelope text-emerald-600"></i>
+                                <span>Email Support</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Page (Initially Hidden) -->
+    <section id="privacy-page" class="pt-32 pb-20 px-4 hidden">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100">
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">ACHRAMS Privacy Policy</h1>
+                <p class="text-gray-600 mb-8">Effective Date: November 3, 2024 | Last Updated: November 3, 2024</p>
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">1. Introduction</h2>
+                        <p class="text-gray-700 leading-relaxed">ACHRAMS ("we," "our," or "us") is committed to protecting your privacy and personal data in accordance with the Nigeria Data Protection Regulation (NDPR) 2019 and other applicable data protection laws in Nigeria.</p>
+                        <div class="mt-4 bg-emerald-50 rounded-lg p-4 border border-emerald-100">
+                            <p class="text-gray-700"><strong>Company Name:</strong> ACHRAMS Nigeria Limited</p>
+                            <p class="text-gray-700"><strong>Technology Provider:</strong> Excellian Technologies</p>
+                            <p class="text-gray-700"><strong>Email:</strong> privacy@achrams.com.ng</p>
+                            <p class="text-gray-700"><strong>Phone:</strong> +234 800 ACHRAMS</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">2. Information We Collect</h2>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Personal Information You Provide</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
+                            <li><strong>Contact Information:</strong> Name, phone number, email address</li>
+                            <li><strong>Travel Information:</strong> Flight details, pickup/drop-off locations, booking preferences</li>
+                            <li><strong>Payment Information:</strong> Payment method details (processed securely through our payment partners)</li>
+                            <li><strong>Identification:</strong> Government-issued ID (for verification purposes when required)</li>
+                        </ul>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Information Collected Automatically</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
+                            <li><strong>Location Data:</strong> GPS coordinates for pickup and drop-off (with your consent)</li>
+                            <li><strong>Device Information:</strong> Device type, operating system, browser type, IP address</li>
+                            <li><strong>Usage Data:</strong> Booking history, service preferences, app interactions</li>
+                            <li><strong>Communication Records:</strong> Customer support conversations, feedback, and ratings</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">3. How We Use Your Information</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Service Delivery</h3>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Process and manage your car hire bookings</li>
+                                    <li>Connect you with verified drivers</li>
+                                    <li>Provide real-time tracking and updates</li>
+                                    <li>Send booking confirmations and receipts</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Safety and Security</h3>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Verify driver credentials with FAAN</li>
+                                    <li>Monitor service quality and safety standards</li>
+                                    <li>Investigate incidents or complaints</li>
+                                    <li>Prevent fraud and unauthorized access</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">4. Data Sharing and Disclosure</h2>
+                        <p class="text-gray-700 mb-4">We only share your personal information in the following circumstances:</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong>Service Providers:</strong> Drivers, payment processors, and technology partners (Excellian Technologies)</li>
+                            <li><strong>Regulatory Authorities:</strong> FAAN, NITDA, and law enforcement when legally required</li>
+                            <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets</li>
+                        </ul>
+                        <div class="mt-4 bg-blue-50 rounded-lg p-4 border border-blue-100">
+                            <p class="text-gray-900 font-semibold">We do NOT sell your personal data to third parties.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">5. Data Security</h2>
+                        <p class="text-gray-700 mb-4">We implement industry-standard security measures:</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Encryption: Data transmitted using SSL/TLS encryption</li>
+                            <li>Access Controls: Limited access to authorized personnel only</li>
+                            <li>Secure Storage: Data stored on secure servers with regular backups</li>
+                            <li>Regular Audits: Periodic security assessments conducted by Excellian Technologies</li>
+                            <li>Staff Training: All employees trained on data protection best practices</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">6. Your Rights Under NDPR</h2>
+                        <p class="text-gray-700 mb-4">As a data subject in Nigeria, you have the following rights:</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong>Right to Access:</strong> Request a copy of the personal data we hold about you</li>
+                            <li><strong>Right to Rectification:</strong> Request correction of inaccurate or incomplete personal data</li>
+                            <li><strong>Right to Erasure:</strong> Request deletion of your personal data</li>
+                            <li><strong>Right to Data Portability:</strong> Receive your data in a structured, commonly used format</li>
+                            <li><strong>Right to Object:</strong> Object to processing based on legitimate interests</li>
+                            <li><strong>Right to Withdraw Consent:</strong> Withdraw consent at any time</li>
+                            <li><strong>Right to Lodge a Complaint:</strong> File a complaint if your rights have been violated</li>
+                        </ul>
+                        <p class="text-gray-700 mt-4">To exercise your rights, contact us at: <a href="mailto:privacy@achrams.com.ng" class="text-emerald-600 hover:underline">privacy@achrams.com.ng</a></p>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">7. Data Retention</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong>Active Account Data:</strong> Retained while your account is active</li>
+                            <li><strong>Booking Records:</strong> Retained for 2 years for legal and accounting purposes</li>
+                            <li><strong>Payment Information:</strong> Retained per financial regulations (minimum 2 years)</li>
+                            <li><strong>Communication Records:</strong> Retained for 1 year for quality assurance</li>
+                            <li><strong>Marketing Consent:</strong> Until you withdraw consent or after 1 year of inactivity</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">8. Contact Information</h2>
+                        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                            <p class="text-gray-700 mb-2"><strong>Data Protection Officer</strong></p>
+                            <p class="text-gray-700">Email: dpo@achrams.com.ng</p>
+                            <p class="text-gray-700">Phone: +234 800 ACHRAMS</p>
+                            <p class="text-gray-700 mt-4"><strong>General Privacy Inquiries</strong></p>
+                            <p class="text-gray-700">Email: privacy@achrams.com.ng</p>
+                        </div>
+                    </div>
+                    <div class="bg-emerald-50 rounded-lg p-6 border border-emerald-200">
+                        <p class="text-gray-900 font-semibold mb-2">Consent</p>
+                        <p class="text-gray-700">By using ACHRAMS services, you acknowledge that you have read, understood, and agree to this Privacy Policy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms Page (Initially Hidden) -->
+    <section id="terms-page" class="pt-32 pb-20 px-4 hidden">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100">
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Terms and Conditions</h1>
+                <p class="text-gray-600 mb-8">Effective Date: November 3, 2024 | Last Updated: November 3, 2024</p>
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">1. Introduction and Acceptance</h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">Welcome to ACHRAMS, the official FAAN-approved airport car hire service. These Terms and Conditions ("Terms") constitute a legally binding agreement between you ("User," "Passenger," or "you") and ACHRAMS Nigeria Limited.</p>
+                        <p class="text-gray-700 leading-relaxed">By accessing or using our Services, you agree to be bound by these Terms. If you do not agree, you must not use our Services.</p>
+                        <div class="mt-4 bg-amber-50 rounded-lg p-4 border border-amber-200">
+                            <p class="text-gray-900 font-semibold">Legal Capacity</p>
+                            <p class="text-gray-700">You must be at least 18 years of age to use our Services.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">2. Service Description</h2>
+                        <p class="text-gray-700 leading-relaxed">ACHRAMS operates as an intermediary platform connecting passengers with FAAN-verified, licensed drivers at Nigerian airports. We facilitate car hire bookings but do not provide transportation services directly. The ACHRAMS platform is developed and maintained by Excellian Technologies.</p>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">3. User Registration and Account</h2>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Account Creation</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
+                            <li>You may create an account or book as a guest using our QR code system</li>
+                            <li>You must provide accurate, current, and complete information</li>
+                            <li>You are responsible for maintaining the confidentiality of your account credentials</li>
+                            <li>You must notify us immediately of any unauthorized access</li>
+                        </ul>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Account Responsibilities</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>You are solely responsible for all activities under your account</li>
+                            <li>You must not share your account with others</li>
+                            <li>You must not create multiple accounts to abuse promotions or services</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">4. Booking and Payment</h2>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Booking Process</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
+                            <li>Bookings can be made via QR codes at airports, our website, or mobile app</li>
+                            <li>You will receive upfront pricing before confirming your booking</li>
+                            <li>All bookings are subject to driver availability</li>
+                        </ul>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Pricing</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
+                            <li>All prices are displayed in Nigerian Naira (₦)</li>
+                            <li>Prices are fixed and transparent with no surge pricing</li>
+                            <li>Additional charges may apply for waiting time exceeding 15 minutes, tolls, parking fees, excessive luggage, detours, or cleaning fees</li>
+                        </ul>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Payment Methods</h3>
+                        <p class="text-gray-700 mb-2">We accept:</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700">
+                            <li>Credit/Debit Cards (Visa, Mastercard, Verve)</li>
+                            <li>Mobile Money (from approved Nigerian providers)</li>
+                            <li>Bank Transfers</li>
+                            <li>Cash (subject to driver availability)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">5. Cancellation and Refund Policy</h2>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Passenger Cancellations</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
+                            <li><strong>Free Cancellation:</strong> Up to 5 minutes after booking confirmation</li>
+                            <li><strong>Cancellation Fee:</strong> ₦500 if cancelled 5-15 minutes after booking</li>
+                            <li><strong>Full Charge:</strong> Cancellations after driver arrival or beyond 15 minutes</li>
+                            <li><strong>No-Show:</strong> Full fare charged if passenger does not appear within 10 minutes of driver arrival</li>
+                        </ul>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Refund Processing</h3>
+                        <p class="text-gray-700">Refunds are processed within 5-7 business days for valid cancellations and 7-14 business days for service issue refunds.</p>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">6. User Conduct and Prohibited Activities</h2>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">You Must Not:</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Use the Services for illegal purposes</li>
+                            <li>Harass, threaten, or abuse drivers</li>
+                            <li>Transport illegal goods, weapons, or hazardous materials</li>
+                            <li>Exceed vehicle passenger capacity</li>
+                            <li>Smoke in vehicles (unless explicitly permitted)</li>
+                            <li>Manipulate or abuse the booking system</li>
+                            <li>Attempt to bypass payment systems</li>
+                        </ul>
+                        <div class="mt-4 bg-red-50 rounded-lg p-4 border border-red-200">
+                            <p class="text-gray-900 font-semibold">Consequences of Violations</p>
+                            <p class="text-gray-700">Violations may result in immediate trip termination, account suspension or permanent ban, legal action, and referral to law enforcement authorities.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">7. Safety and Security</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>We partner only with FAAN-verified drivers</li>
+                            <li>All drivers undergo background checks</li>
+                            <li>Real-time tracking available for all trips</li>
+                            <li>Emergency support line: +234 800 ACHRAMS</li>
+                        </ul>
+                        <div class="mt-4 bg-emerald-50 rounded-lg p-4 border border-emerald-200">
+                            <p class="text-gray-900 font-semibold">Report Safety Issues Immediately</p>
+                            <p class="text-gray-700">Emergency Line: +234 800 ACHRAMS (Option 1)</p>
+                            <p class="text-gray-700">Email: safety@achrams.com.ng</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">8. Limitation of Liability</h2>
+                        <p class="text-gray-700 mb-4">ACHRAMS provides a platform connecting passengers with independent drivers. We are not:</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>A transportation carrier</li>
+                            <li>Responsible for driver actions or omissions</li>
+                            <li>Liable for accidents, injuries, or damages during trips</li>
+                            <li>Guaranteeing service availability at all times</li>
+                        </ul>
+                        <p class="text-gray-700 mt-4">Services are provided "AS IS" and "AS AVAILABLE" without warranties of any kind.</p>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">9. Intellectual Property</h2>
+                        <p class="text-gray-700 mb-4">All intellectual property rights in the Platform, including trademarks, logos, software, and content, are owned by ACHRAMS, Excellian Technologies, or our licensors.</p>
+                        <p class="text-gray-700">The ACHRAMS platform is developed and maintained by Excellian Technologies. All technology rights are the property of Excellian Technologies.</p>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">10. Dispute Resolution</h2>
+                        <p class="text-gray-700 mb-4">Before initiating formal proceedings, you agree to contact us at legal@achrams.com.ng to attempt informal resolution.</p>
+                        <p class="text-gray-700">Any disputes not resolved informally shall be settled by arbitration in accordance with the Arbitration and Conciliation Act (Cap A18) Laws of the Federation of Nigeria 2004.</p>
+                        <p class="text-gray-700 mt-4">These Terms are governed by the laws of the Federal Republic of Nigeria.</p>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">11. Contact Information</h2>
+                        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                            <p class="text-gray-700 font-semibold mb-2">ACHRAMS Nigeria Limited</p>
+                            <p class="text-gray-700">Technology Partner: Excellian Technologies</p>
+                            <p class="text-gray-700 mt-3"><strong>General Inquiries:</strong></p>
+                            <p class="text-gray-700">Email: support@achrams.com.ng</p>
+                            <p class="text-gray-700">Phone: +234 800 ACHRAMS</p>
+                            <p class="text-gray-700 mt-3"><strong>Legal Department:</strong></p>
+                            <p class="text-gray-700">Email: legal@achrams.com.ng</p>
+                            <p class="text-gray-700 mt-3"><strong>Safety and Emergency:</strong></p>
+                            <p class="text-gray-700">24/7 Hotline: +234 800 ACHRAMS (Option 1)</p>
+                            <p class="text-gray-700">Email: safety@achrams.com.ng</p>
+                        </div>
+                    </div>
+                    <div class="bg-blue-50 rounded-lg p-6 border border-blue-200">
+                        <p class="text-gray-900 font-semibold mb-2">Acknowledgment</p>
+                        <p class="text-gray-700">BY CLICKING "I AGREE," SCANNING A QR CODE TO BOOK, OR USING OUR SERVICES, YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTOOD, AND AGREE TO BE BOUND BY THESE TERMS AND CONDITIONS.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-white border-t border-gray-100 py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
+                            <i class="fas fa-plane text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gradient">ACHRAMS</h3>
+                            <p class="text-xs text-gray-600">Official Airport Taxi</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">FAAN-approved taxi service.</p>
+                    <div class="flex items-center space-x-2 text-sm text-gray-600">
+                        <i class="fas fa-globe text-emerald-600"></i>
+                        <span>Available in 5+ languages</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#top" class="no-underline"><button onclick="changePage('home')" class="text-gray-600 hover:text-emerald-600"> Home </button></a></li>
+                        <li><button onclick="changePage('faqs')" class="text-gray-600 hover:text-emerald-600">FAQs</button></li>
+                        <li><button onclick="changePage('privacy')" class="text-gray-600 hover:text-emerald-600">Privacy Policy</button></li>
+                        <li><button onclick="changePage('terms')" class="text-gray-600 hover:text-emerald-600">Terms of Service</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center space-x-2 text-gray-600">
+                            <i class="fas fa-phone text-emerald-600"></i>
+                            <span>+234 800 ACHRAMS</span>
+                        </li>
+                        <li class="flex items-center space-x-2 text-gray-600">
+                            <i class="fas fa-envelope text-emerald-600"></i>
+                            <span>support@achrams.com.ng</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600 text-sm">© 2024 ACHRAMS. All rights reserved.</p>
+                <div class="flex items-center space-x-6 mt-4 md:mt-0">
+                    <button onclick="changePage('privacy')" class="text-gray-600 hover:text-emerald-600 text-sm">Privacy Policy</button>
+                    <button onclick="changePage('terms')" class="text-gray-600 hover:text-emerald-600 text-sm">Terms of Service</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // State management
+        let currentPage = 'home';
+        let currentTestimonial = 0;
+        let scrolled = false;
+        let activeHeroImage = 0;
+        let heroImages = [
+            'https://placehold.co/1200x800/059669/FFFFFF?text=Airport+View',
+            'https://placehold.co/1200x800/0d9488/FFFFFF?text=City+Landscape',
+            'https://placehold.co/1200x800/0891b2/FFFFFF?text=Taxi+Service',
+            'https://placehold.co/1200x800/0f766e/FFFFFF?text=Safe+Travel',
+            'https://placehold.co/1200x800/0e7490/FFFFFF?text=Airport+Pickup',
+            //'https://placehold.co/1200x800/0c4a6e/FFFFFF?text=Reliable+Service'
+        ];
+        let textFontSize = 'text-base';
+        let currentLanguage = 'en';
+
+        // DOM Elements
+        const header = document.getElementById('header');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const testimonialContainer = document.getElementById('testimonial-container');
+        const heroImagesElements = document.querySelectorAll('.hero-image');
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up scroll event listener
+            window.addEventListener('scroll', handleScroll);
+            
+            // Set up testimonial rotation
+            setInterval(rotateTestimonials, 5000);
+            
+            // Set up hero image rotation
+            setInterval(rotateHeroImages, 4000);
+            
+            // Set initial testimonial
+            updateTestimonialDisplay();
+            
+            // Set initial hero image
+            updateHeroImageDisplay();
+            
+            // Set up mobile menu toggle
+            mobileMenuButton.addEventListener('click', toggleMobileMenu);
+        });
+
+        // Handle scroll effects
+        function handleScroll() {
+            scrolled = window.scrollY > 50;
+            header.classList.toggle('scroll-header', scrolled);
+        }
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Change page content
+        function changePage(page) {
+            // Hide all pages
+            document.getElementById('home-page').classList.add('hidden');
+            document.getElementById('faq-page').classList.add('hidden');
+            document.getElementById('privacy-page').classList.add('hidden');
+            document.getElementById('terms-page').classList.add('hidden');
+            
+            // Update navigation
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('current-page');
+            });
+            
+            // Show selected page
+            if (page === 'home') {
+                document.getElementById('home-page').classList.remove('hidden');
+                document.querySelector('nav button[onclick="changePage(\'home\')"]').classList.add('current-page');
+            } else if (page === 'faqs') {
+                document.getElementById('faq-page').classList.remove('hidden');
+                document.querySelector('nav button[onclick="changePage(\'faqs\')"]').classList.add('current-page');
+            } else if (page === 'privacy') {
+                document.getElementById('privacy-page').classList.remove('hidden');
+            } else if (page === 'terms') {
+                document.getElementById('terms-page').classList.remove('hidden');
+            }
+            
+            currentPage = page;
+        }
+
+        // Rotate testimonials
+        function rotateTestimonials() {
+            currentTestimonial = (currentTestimonial + 1) % 3;
+            updateTestimonialDisplay();
+        }
+
+        // Update testimonial display
+        function updateTestimonialDisplay() {
+            const slides = document.querySelectorAll('.testimonial-slide');
+            slides.forEach((slide, index) => {
+                if (index === currentTestimonial) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+            
+            // Update indicators
+            const indicators = document.querySelectorAll('.testimonial-indicator');
+            indicators.forEach((indicator, index) => {
+                if (index === currentTestimonial) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        // Change testimonial
+        function changeTestimonial(index) {
+            currentTestimonial = index;
+            updateTestimonialDisplay();
+        }
+
+        // Rotate hero images
+        function rotateHeroImages() {
+            activeHeroImage = (activeHeroImage + 1) % heroImages.length;
+            updateHeroImageDisplay();
+        }
+
+        // Update hero image display
+        function updateHeroImageDisplay() {
+            heroImagesElements.forEach((img, index) => {
+                if (index === activeHeroImage) {
+                    img.classList.add('active');
+                } else {
+                    img.classList.remove('active');
+                }
+            });
+        }
+
+        // Toggle FAQ
+        function toggleFAQ(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+
+        // Change text size
+        function changeTextSize(size) {
+            const sizes = {
+                'small': 'text-sm',
+                'normal': 'text-base',
+                'large': 'text-lg',
+                'xlarge': 'text-xl',
+                'xxlarge': 'text-2xl'
+            };
+            
+            document.body.className = document.body.className.replace(/text-\w+/, '');
+            document.body.classList.add(sizes[size]);
+            
+            // Update active button
+            document.querySelectorAll('.text-size-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // Change language
+        function changeLanguage(lang) {
+            // In a real implementation, this would load different translations
+            currentLanguage = lang;
+            // For now, just log the change
+            console.log('Language changed to: ' + lang);
+        }
+    </script>
+</body>
+</html>
