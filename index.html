@@ -96,7 +96,8 @@
         .testimonial-slide.active {
             display: block;
         }
-        .hero-image {
+        
+        /**.hero-image {
             position: absolute;
             top: 0;
             left: 0;
@@ -118,6 +119,51 @@
             height: 100%;
             background: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.6) 100%);
         }
+
+        **/
+
+        /* Enhanced hero image styles for maximum visibility */
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    filter: brightness(1.1) contrast(1.1) saturate(1.1);
+}
+
+.hero-image.active {
+    opacity: 1;
+}
+
+/* Enhanced gradient overlay for better text contrast */
+    .hero-gradient-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.3) 0%,
+            rgba(0, 0, 0, 0.1) 40%,
+            rgba(0, 0, 0, 0.5) 100%
+        );
+    }
+
+    /* Alternative overlay class for more aggressive contrast */
+    .hero-strong-overlay {
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.2) 0%,
+            rgba(0, 0, 0, 0.1) 30%,
+            rgba(0, 0, 0, 0.6) 100%
+        );
+    }
         .faq-item {
             transition: all 0.3s ease;
         }
@@ -285,36 +331,35 @@
 
                         <button onclick="changePage('terms'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">Terms</button>
 
-                    </a>
-                
-                
+                    </a>  
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home-page" class="pt-32 pb-20 px-4 relative overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <div class="hero-image active" style="background-image: url('faan_hero.jpg');"></div>
-            <div class="hero-image" style="background-image: url('faan_hero3');"></div>
-            <div class="hero-image" style="background-image: url('faan_hero4');"></div>
-            <div class="hero-image" style="background-image: url('faan_hero2.jpeg');"></div>
-            <!-- <div class="hero-image" style="background-image: url('airport_pickup.jpeg');"></div> -->
-            <div class="hero-image" style="background-image: url('faan_hero5');"></div>
-            <div class="hero-gradient"></div>
-        </div>
-        <div class="max-w-6xl mx-auto text-center space-y-8 relative z-10">
+    <!-- Enhanced Hero Section with Improved Image Visibility and Text Legibility -->
+<section id="home-page" class="pt-32 pb-20 px-4 relative overflow-hidden border h-[100vh]">
+    <div class="absolute inset-0 z-0">
+        <div class="hero-image active" style="background-image: url('faan_hero.jpg');"></div>
+        <div class="hero-image" style="background-image: url('faan_hero3');"></div>
+        <div class="hero-image" style="background-image: url('faan_hero2.jpeg');"></div>
+        <!-- Overlay for enhanced contrast -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-1"></div>
+    </div>
+    <div class="grid place-items-center h-full">
+
+        <div class="max-w-6xl mx-auto  text-center space-y-8 relative z-20">
             <div class="inline-flex items-center space-x-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-emerald-100">
                 <i class="fas fa-check-circle text-emerald-600"></i>
                 <span class="text-sm text-gray-700 font-medium">Official FAAN-Approved Service</span>
             </div>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight drop-shadow-sm">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-2xl [text-shadow:0_4px_6px_rgba(0,0,0,0.9)]">
                 Your Safe, Reliable
-                <span class="block mt-2 text-gradient">Airport Car Hire Service</span>
+                <span class="block mt-2 text-white">Airport Car Hire Service</span>
             </h1>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto drop-shadow-sm">Official FAAN-approved car hire service with transparent pricing.</p>
+            <p class="text-xl text-white max-w-3xl mx-auto drop-shadow-lg [text-shadow:0_2px_4px_rgba(0,0,0,0.8)]">Official FAAN-approved car hire service with transparent pricing.</p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button class="px-8 py-4 bg-gradient-primary text-white rounded-xl hover:shadow-xl font-semibold flex items-center space-x-2">
+                <button class="px-8 py-4 bg-gradient-primary text-white rounded-xl hover:shadow-xl font-semibold flex items-center space-x-2 shadow-lg">
                     <i class="fas fa-qrcode"></i>
                     <span>Scan & Book Now</span>
                 </button>
@@ -323,38 +368,41 @@
                     <span>Contact Support</span>
                 </button>
             </div>
+            <!-- Stats with enhanced text contrast -->
             <div class="flex flex-wrap items-center justify-center gap-8 pt-8">
                 <div class="text-center">
                     <div class="flex items-center justify-center space-x-2 mb-1">
-                        <i class="fas fa-users text-emerald-600 stats-icon"></i>
-                        <p class="text-3xl font-bold text-gradient-stats">50K+</p>
+                        <i class="fas fa-users text-emerald-300 stats-icon"></i>
+                        <p class="text-3xl font-bold text-white drop-shadow-lg">50K+</p>
                     </div>
-                    <p class="text-sm text-gray-600 font-medium">Happy Passengers</p>
+                    <p class="text-sm text-white/90 font-medium drop-shadow-md">Happy Passengers</p>
                 </div>
                 <div class="text-center">
                     <div class="flex items-center justify-center space-x-2 mb-1">
-                        <i class="fas fa-shield-alt text-emerald-600 stats-icon"></i>
-                        <p class="text-3xl font-bold text-gradient-stats">1,200+</p>
+                        <i class="fas fa-shield-alt text-emerald-300 stats-icon"></i>
+                        <p class="text-3xl font-bold text-white drop-shadow-lg">1,200+</p>
                     </div>
-                    <p class="text-sm text-gray-600 font-medium">Verified Drivers</p>
+                    <p class="text-sm text-white/90 font-medium drop-shadow-md">Verified Drivers</p>
                 </div>
                 <div class="text-center">
                     <div class="flex items-center justify-center space-x-2 mb-1">
-                        <i class="fas fa-plane text-emerald-600 stats-icon"></i>
-                        <p class="text-3xl font-bold text-gradient-stats">5</p>
+                        <i class="fas fa-plane text-emerald-300 stats-icon"></i>
+                        <p class="text-3xl font-bold text-white drop-shadow-lg">5</p>
                     </div>
-                    <p class="text-sm text-gray-600 font-medium">Major Airports</p>
+                    <p class="text-sm text-white/90 font-medium drop-shadow-md">Major Airports</p>
                 </div>
                 <div class="text-center">
                     <div class="flex items-center justify-center space-x-2 mb-1">
-                        <i class="fas fa-star text-emerald-600 stats-icon"></i>
-                        <p class="text-3xl font-bold text-gradient-stats">4.9</p>
+                        <i class="fas fa-star text-emerald-300 stats-icon"></i>
+                        <p class="text-3xl font-bold text-white drop-shadow-lg">4.9</p>
                     </div>
-                    <p class="text-sm text-gray-600 font-medium">Average Rating</p>
+                    <p class="text-sm text-white/90 font-medium drop-shadow-md">Average Rating</p>
                 </div>
             </div>
         </div>
-    </section>
+
+    </div>
+</section>
 
     <!-- Features Section -->
     <section id="features" class="py-20 px-4 bg-white/50">
@@ -364,43 +412,43 @@
                 <p class="text-lg text-gray-600">Official service with guaranteed safety</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all">
-                    <div class="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                <div class="feature-card bg-white rounded-2xl p-8 hover:border hover:shadow-xl transition-all text-center">
+                    <div class="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6 shadow-lg mx-auto">
                         <i class="fas fa-shield-alt text-white text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">FAAN Safety</h3>
-                    <p class="text-gray-600">All drivers vetted by FAAN.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 ">FAAN Safety</h3>
+                    <p class="text-gray-600 ">All drivers vetted by FAAN.</p>
                 </div>
-                <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all">
-                    <div class="w-14 h-14 bg-gradient-secondary rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all text-center">
+                    <div class="w-14 h-14 bg-gradient-secondary rounded-xl flex items-center justify-center mb-6 shadow-lg mx-auto">
                         <i class="fas fa-money-bill-wave text-white text-xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Clear Pricing</h3>
                     <p class="text-gray-600">No hidden fees.</p>
                 </div>
-                <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all">
-                    <div class="w-14 h-14 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all text-center">
+                    <div class="w-14 h-14 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-xl flex items-center justify-center mb-6 shadow-lg mx-auto">
                         <i class="fas fa-clock text-white text-xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Zero Wait</h3>
                     <p class="text-gray-600">Driver ready when you land.</p>
                 </div>
-                <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all">
-                    <div class="w-14 h-14 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all text-center">
+                    <div class="w-14 h-14 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center mb-6 shadow-lg mx-auto">
                         <i class="fas fa-qrcode text-white text-xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Scan & Book</h3>
                     <p class="text-gray-600">No app needed.</p>
                 </div>
-                <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all">
-                    <div class="w-14 h-14 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all text-center">
+                    <div class="w-14 h-14 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-xl flex items-center justify-center mb-6 shadow-lg mx-auto">
                         <i class="fas fa-globe text-white text-xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Multilingual</h3>
                     <p class="text-gray-600">5 languages available.</p>
                 </div>
-                <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all">
-                    <div class="w-14 h-14 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all text-center">
+                    <div class="w-14 h-14 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl flex items-center justify-center mb-6 shadow-lg mx-auto">
                         <i class="fas fa-credit-card text-white text-xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Secure Pay</h3>
@@ -1082,8 +1130,8 @@
             'https://placehold.co/1200x800/059669/FFFFFF?text=Airport+View',
             'https://placehold.co/1200x800/0d9488/FFFFFF?text=City+Landscape',
             'https://placehold.co/1200x800/0891b2/FFFFFF?text=Taxi+Service',
-            'https://placehold.co/1200x800/0f766e/FFFFFF?text=Safe+Travel',
-            'https://placehold.co/1200x800/0e7490/FFFFFF?text=Airport+Pickup',
+            //'https://placehold.co/1200x800/0f766e/FFFFFF?text=Safe+Travel',
+            //'https://placehold.co/1200x800/0e7490/FFFFFF?text=Airport+Pickup',
             //'https://placehold.co/1200x800/0c4a6e/FFFFFF?text=Reliable+Service'
         ];
         let textFontSize = 'text-base';
@@ -1198,12 +1246,27 @@
         }
 
         // Update hero image display
-        function updateHeroImageDisplay() {
+        /**function updateHeroImageDisplay() {
             heroImagesElements.forEach((img, index) => {
                 if (index === activeHeroImage) {
                     img.classList.add('active');
                 } else {
                     img.classList.remove('active');
+                }
+            });
+        } **/
+
+        // Enhanced hero image rotation with improved performance
+        
+        function updateHeroImageDisplay() {
+            heroImagesElements.forEach((img, index) => {
+                if (index === activeHeroImage) {
+                    img.classList.add('active');
+                    // Apply enhanced image effects when active
+                    img.style.filter = 'brightness(1.15) contrast(1.15) saturate(1.15)';
+                } else {
+                    img.classList.remove('active');
+                    img.style.filter = '';
                 }
             });
         }
