@@ -255,7 +255,7 @@
         }
     </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-gray-50 via-emerald-50/20 to-teal-50/30 text-base">
+<body class="min-h-screen bg-gradient-to-br from-gray-50 via-emerald-50/20 to-teal-50/30 text-base overflow-x-hidden">
     <!-- Accessibility Controls -->
     <!-- <div class="accessibility-controls">
         <div class="flex items-center gap-4">
@@ -293,7 +293,7 @@
                         <p class="text-xs text-gray-600">Official Airport Car Hire</p>
                     </div>
                 </button>
-                <nav class="hidden md:flex items-center space-x-8">
+                <nav class="hidden lg:flex items-center space-x-8">
                     <button onclick="changePage('home')" class="font-medium text-gray-700 hover:text-emerald-600 current-page">Home</button>
                     <a href="#features" class="text-gray-700 hover:text-emerald-600 font-medium">Features</a>
                     <a href="#how-it-works" class="text-gray-700 hover:text-emerald-600 font-medium">How It Works</a>
@@ -307,7 +307,7 @@
                         <i class="fas fa-arrow-right text-xs"></i>
                     </button>
                 </nav>
-                <button id="mobile-menu-button" class="md:hidden p-2 text-gray-700 hover:bg-emerald-50 rounded-lg">
+                <button id="mobile-menu-button" class="lg:hidden p-2 text-gray-700 hover:bg-emerald-50 rounded-lg">
                     <i class="fas fa-bars text-lg"></i>
                 </button>
             </div>
@@ -338,10 +338,10 @@
 
     <!-- Hero Section -->
     <!-- Enhanced Hero Section with Improved Image Visibility and Text Legibility -->
-<section id="home-page" class="pt-32 pb-20 px-4 relative overflow-hidden border h-[100vh]">
-    <div class="absolute inset-0 z-0">
+<section id="home-page" class="pt-32 pb-20 px-4 relative overflow-hidden border h-[100vh] w-full">
+    <div class="absolute inset-0 z-0 top-10">
         <div class="hero-image active" style="background-image: url('faan_hero.jpg');"></div>
-        <div class="hero-image" style="background-image: url('faan_hero3');"></div>
+        <div class="hero-image" style="background-image: url('faan_hero3.png');"></div>
         <div class="hero-image" style="background-image: url('faan_hero2.jpeg');"></div>
         <!-- Overlay for enhanced contrast -->
         <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-1"></div>
