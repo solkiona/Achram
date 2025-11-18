@@ -19,7 +19,8 @@
 <meta name="twitter:description" content="Your Safe, Reliable Airport Car Hire Service. Official FAAN-approved car hire service with transparent pricing.">
 <meta name="twitter:image" content="og.svg"> <!-- Placeholder representing the logo -->
 <meta name="twitter:image:alt" content="ACHRAMS Logo - Plane Icon in Gradient Square">
-    <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -253,6 +254,44 @@
         .current-page {
             color: #059669 !important;
         }
+
+        /* Add these styles to your existing CSS */
+.accessibility-panel {
+  /* Start off-screen on mobile or just above header */
+  top: calc(5rem + 10px); /* Adjust based on your header height */
+}
+
+.accessibility-toggle-btn {
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.accessibility-toggle-btn:hover,
+.accessibility-toggle-btn:focus {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: scale(1.05);
+}
+
+.accessibility-controls-container {
+  /* Add a subtle shadow for better depth */
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.accessibility-controls-container.active {
+  max-height: 300px; /* Adjust based on content height */
+  opacity: 1;
+  transform: translateY(0);
+  overflow: visible;
+}
+
+.language-select {
+  font-size: 0.875rem; /* text-sm */
+}
     </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-gray-50 via-emerald-50/20 to-teal-50/30 text-base overflow-x-hidden">
@@ -279,6 +318,50 @@
             </div>
         </div>
     </div> -->
+    <!-- Replace your existing accessibility-controls div with this -->
+<div class="accessibility-panel fixed top-20 right-4 z-[90] transition-all duration-300 ease-in-out">
+    <div class="flex flex-col sm:flex-row items-end sm:items-center gap-2">
+        <!-- Toggle Button -->
+        <button id="accessibilityToggle" 
+                class="accessibility-toggle-btn w-10 h-10 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors z-10">
+            <i class="fas fa-universal-access text-emerald-600 text-sm"></i>
+        </button>
+
+        <!-- Controls Panel (Initially Hidden) -->
+        <div id="accessibilityControls" 
+             class="accessibility-controls-container hidden absolute sm:relative top-full right-0 mt-2 sm:mt-0 bg-white rounded-xl shadow-xl border border-gray-200 p-4 min-w-[220px] sm:min-w-[280px]">
+            <div class="flex flex-col sm:flex-row items-center gap-4">
+                <div class="flex flex-col w-full">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-semibold text-gray-700">Text Size</span>
+                        <!-- Close button for mobile/smaller screens -->
+                        <button id="closeAccessibilityPanel" 
+                                class="sm:hidden text-gray-400 hover:text-gray-600 text-sm">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center justify-center sm:justify-start gap-1 mb-3">
+                        <button onclick="changeTextSize('small')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A-</button>
+                        <button onclick="changeTextSize('normal')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 active px-2 py-1 rounded">A</button>
+                        <button onclick="changeTextSize('large')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A+</button>
+                        <button onclick="changeTextSize('xlarge')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A++</button>
+                        <button onclick="changeTextSize('xxlarge')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A+++</button>
+                    </div>
+                </div>
+                <div class="flex flex-col w-full">
+                    <span class="text-xs font-semibold text-gray-700 mb-2">Language</span>
+                    <select onchange="changeLanguage(this.value)" class="language-select w-full p-2 border border-gray-300 rounded-lg bg-white text-sm">
+                        <option value="en">English</option>
+                        <option value="ha">Hausa</option>
+                        <option value="yo">Yoruba</option>
+                        <option value="ig">Igbo</option>
+                        <option value="fr">Français</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- Header -->
     <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md">
@@ -340,7 +423,7 @@
     <!-- Enhanced Hero Section with Improved Image Visibility and Text Legibility -->
 <section id="home-page" class="pt-32 pb-20 px-4 relative overflow-hidden border h-[100vh] w-full">
     <div class="absolute inset-0 z-0 top-10">
-        <div class="hero-image active" style="background-image: url('faan_hero.jpg');"></div>
+        <div class="hero-image active" style="background-image: url('faan_hero.jpeg');"></div>
         <div class="hero-image" style="background-image: url('faan_hero3');"></div>
         <div class="hero-image" style="background-image: url('faan_hero2.jpeg');"></div>
         <!-- Overlay for enhanced contrast -->
@@ -1120,20 +1203,76 @@
         </div>
     </footer>
 
+
+    <script>
+        // Add this script to your existing JavaScript section
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('accessibilityToggle');
+    const controlsContainer = document.getElementById('accessibilityControls');
+    const closeBtn = document.getElementById('closeAccessibilityPanel');
+
+    // Function to show the panel
+    function showPanel() {
+        controlsContainer.classList.add('active');
+        controlsContainer.classList.remove('hidden');
+    }
+
+    // Function to hide the panel
+    function hidePanel() {
+        controlsContainer.classList.remove('active');
+        // Delay hiding to allow for smooth transition
+        setTimeout(() => {
+            if (!controlsContainer.classList.contains('active')) {
+                controlsContainer.classList.add('hidden');
+            }
+        }, 300); // Match the transition duration
+    }
+
+    // Toggle visibility on button click
+    toggleBtn.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent event bubbling
+        if (controlsContainer.classList.contains('hidden') || !controlsContainer.classList.contains('active')) {
+            showPanel();
+        } else {
+            hidePanel();
+        }
+    });
+
+    // Close panel when close button is clicked (for mobile/small screens)
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            hidePanel();
+        });
+    }
+
+    // Close panel when clicking outside of it
+    document.addEventListener('click', function(e) {
+        if (!controlsContainer.contains(e.target) && !toggleBtn.contains(e.target)) {
+            hidePanel();
+        }
+    });
+
+    // Optional: Close panel on escape key press
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !controlsContainer.classList.contains('hidden') && controlsContainer.classList.contains('active')) {
+            hidePanel();
+        }
+    });
+});
+    </script>
     <script>
         // State management
         let currentPage = 'home';
         let currentTestimonial = 0;
         let scrolled = false;
         let activeHeroImage = 0;
-        let heroImages = [
-            'https://placehold.co/1200x800/059669/FFFFFF?text=Airport+View',
-            'https://placehold.co/1200x800/0d9488/FFFFFF?text=City+Landscape',
-            'https://placehold.co/1200x800/0891b2/FFFFFF?text=Taxi+Service',
-            //'https://placehold.co/1200x800/0f766e/FFFFFF?text=Safe+Travel',
-            //'https://placehold.co/1200x800/0e7490/FFFFFF?text=Airport+Pickup',
-            //'https://placehold.co/1200x800/0c4a6e/FFFFFF?text=Reliable+Service'
-        ];
+       let heroImages = [
+    'faan_hero.jpg', // Index 0
+    'faan_hero3.jpg', // Index 1
+    'faan_hero2.jpeg', // Index 2
+    // Add more URLs if you have more .hero-image divs
+];
         let textFontSize = 'text-base';
         let currentLanguage = 'en';
 
