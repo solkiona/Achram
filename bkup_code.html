@@ -60,3 +60,390 @@
             </div>
         </div>
     </section>
+
+
+
+
+    <script>
+
+        
+        // Add this script to your existing JavaScript section
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('accessibilityToggle');
+    const controlsContainer = document.getElementById('accessibilityControls');
+    const closeBtn = document.getElementById('closeAccessibilityPanel');
+
+    // Function to show the panel
+    function showPanel() {
+        controlsContainer.classList.add('active');
+        controlsContainer.classList.remove('hidden');
+    }
+
+    // Function to hide the panel
+    function hidePanel() {
+        controlsContainer.classList.remove('active');
+        // Delay hiding to allow for smooth transition
+        setTimeout(() => {
+            if (!controlsContainer.classList.contains('active')) {
+                controlsContainer.classList.add('hidden');
+            }
+        }, 300); // Match the transition duration
+    }
+
+    // Toggle visibility on button click
+    toggleBtn.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent event bubbling
+        if (controlsContainer.classList.contains('hidden') || !controlsContainer.classList.contains('active')) {
+            showPanel();
+        } else {
+            hidePanel();
+        }
+    });
+
+    // Close panel when close button is clicked (for mobile/small screens)
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            hidePanel();
+        });
+    }
+
+    // Close panel when clicking outside of it
+    document.addEventListener('click', function(e) {
+        if (!controlsContainer.contains(e.target) && !toggleBtn.contains(e.target)) {
+            hidePanel();
+        }
+    });
+
+    // Optional: Close panel on escape key press
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !controlsContainer.classList.contains('hidden') && controlsContainer.classList.contains('active')) {
+            hidePanel();
+        }
+    });
+});
+    </script>
+
+<script>
+        // State management
+        let currentPage = 'home';
+        let currentTestimonial = 0;
+        let scrolled = false;
+        let activeHeroImage = 0;
+       let heroImages = [
+    'faan_hero.jpg', // Index 0
+    'faan_hero3.jpg', // Index 1
+    'faan_hero2.jpeg', // Index 2
+    // Add more URLs if you have more .hero-image divs
+];
+        let textFontSize = 'text-base';
+        let currentLanguage = 'en';
+
+        // DOM Elements
+        const header = document.getElementById('header');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const testimonialContainer = document.getElementById('testimonial-container');
+        const heroImagesElements = document.querySelectorAll('.hero-image');
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up scroll event listener
+            window.addEventListener('scroll', handleScroll);
+            
+            // Set up testimonial rotation
+            setInterval(rotateTestimonials, 5000);
+            
+            // Set up hero image rotation
+            setInterval(rotateHeroImages, 4000);
+            
+            // Set initial testimonial
+            updateTestimonialDisplay();
+            
+            // Set initial hero image
+            updateHeroImageDisplay();
+            
+            // Set up mobile menu toggle
+            mobileMenuButton.addEventListener('click', toggleMobileMenu);
+        });
+
+        // Handle scroll effects
+        function handleScroll() {
+            scrolled = window.scrollY > 50;
+            header.classList.toggle('scroll-header', scrolled);
+        }
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Change page content
+        function changePage(page) {
+            // Hide all pages
+            document.getElementById('home-page').classList.add('hidden');
+            document.getElementById('faq-page').classList.add('hidden');
+            document.getElementById('privacy-page').classList.add('hidden');
+            document.getElementById('terms-page').classList.add('hidden');
+            
+            // Update navigation
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('current-page');
+            });
+            
+            // Show selected page
+            if (page === 'home') {
+                document.getElementById('home-page').classList.remove('hidden');
+                document.querySelector('nav button[onclick="changePage(\'home\')"]').classList.add('current-page');
+            } else if (page === 'faqs') {
+                document.getElementById('faq-page').classList.remove('hidden');
+                document.querySelector('nav button[onclick="changePage(\'faqs\')"]').classList.add('current-page');
+            } else if (page === 'privacy') {
+                document.getElementById('privacy-page').classList.remove('hidden');
+            } else if (page === 'terms') {
+                document.getElementById('terms-page').classList.remove('hidden');
+            }
+            
+            currentPage = page;
+        }
+
+        // Rotate testimonials
+        function rotateTestimonials() {
+            currentTestimonial = (currentTestimonial + 1) % 3;
+            updateTestimonialDisplay();
+        }
+
+        // Update testimonial display
+        function updateTestimonialDisplay() {
+            const slides = document.querySelectorAll('.testimonial-slide');
+            slides.forEach((slide, index) => {
+                if (index === currentTestimonial) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+            
+            // Update indicators
+            const indicators = document.querySelectorAll('.testimonial-indicator');
+            indicators.forEach((indicator, index) => {
+                if (index === currentTestimonial) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        // Change testimonial
+        function changeTestimonial(index) {
+            currentTestimonial = index;
+            updateTestimonialDisplay();
+        }
+
+        // Rotate hero images
+        function rotateHeroImages() {
+            activeHeroImage = (activeHeroImage + 1) % heroImages.length;
+            updateHeroImageDisplay();
+        }
+
+    
+        function updateHeroImageDisplay() {
+            heroImagesElements.forEach((img, index) => {
+                if (index === activeHeroImage) {
+                    img.classList.add('active');
+                    // Apply enhanced image effects when active
+                    img.style.filter = 'brightness(1.15) contrast(1.15) saturate(1.15)';
+                } else {
+                    img.classList.remove('active');
+                    img.style.filter = '';
+                }
+            });
+        }
+
+    // Toggle FAQ
+    function toggleFAQ(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+
+
+        function changeTextSize(size) {
+                const sizes = {
+                    'small': 'text-sm',
+                    'normal': 'text-base',
+                    'large': 'text-lg',
+                    'xlarge': 'text-xl',
+                    'xxlarge': 'text-2xl'
+                };
+                // Remove any existing size classes from the body
+                const currentClasses = document.body.className.split(' ');
+                const filteredClasses = currentClasses.filter(cls => !cls.startsWith('text-') || cls === 'text-base'); // Keep 'text-base' if it's the default
+                document.body.className = filteredClasses.join(' ');
+
+                // Add the new size class
+                if (sizes[size]) {
+                    document.body.classList.add(sizes[size]);
+                }
+
+                // Update active button (assuming event is available)
+                if (event) {
+                    document.querySelectorAll('.text-size-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    event.target.classList.add('active');
+                }
+
+                // Save the selected text size to localStorage for persistence
+                localStorage.setItem('selectedTextSize', size);
+            }
+
+            // --- PRODUCTION: Load Text Size on Page Load ---
+            document.addEventListener('DOMContentLoaded', function() {
+                // Check if a text size was previously selected
+                const savedTextSize = localStorage.getItem('selectedTextSize');
+                if (savedTextSize) {
+                    // If a saved size exists, apply it
+                    changeTextSize(savedTextSize);
+                }
+            });
+
+    </script>
+
+
+
+     <!-- Accessibility Controls -->
+    <!-- <div class="accessibility-controls">
+        <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2 pr-4 border-r border-gray-200">
+                <span class="text-xs font-semibold text-gray-700">Text Size:</span>
+                <button onclick="changeTextSize('small')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200">A-</button>
+                <button onclick="changeTextSize('normal')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 active">A</button>
+                <button onclick="changeTextSize('large')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200">A+</button>
+                <button onclick="changeTextSize('xlarge')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200">A++</button>
+                <button onclick="changeTextSize('xxlarge')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200">A+++</button>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-xs font-semibold text-gray-700">Language:</span>
+                <select onchange="changeLanguage(this.value)" class="language-select">
+                    <option value="en">English</option>
+                    <option value="ha">Hausa</option>
+                    <option value="yo">Yoruba</option>
+                    <option value="ig">Igbo</option>
+                    <option value="fr">Français</option>
+                </select>
+            </div>
+        </div>
+    </div> -->
+    <!-- Replace your existing accessibility-controls div with this -->
+<!-- <div class="accessibility-panel fixed top-20 right-4 z-[90] transition-all duration-300 ease-in-out">
+    <div class="flex flex-col sm:flex-row items-end sm:items-center gap-2"> -->
+        <!-- Toggle Button -->
+        <!-- <button id="accessibilityToggle" 
+                class="accessibility-toggle-btn w-10 h-10 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors z-10">
+            <i class="fas fa-universal-access text-emerald-600 text-sm"></i>
+        </button> -->
+
+        <!-- Controls Panel (Initially Hidden) -->
+        <!-- <div id="accessibilityControls" 
+             class="accessibility-controls-container hidden absolute sm:relative top-full right-0 mt-2 sm:mt-0 bg-white rounded-xl shadow-xl border border-gray-200 p-4 min-w-[220px] sm:min-w-[280px]">
+            <div class="flex flex-col sm:flex-row items-center gap-4">
+                <div class="flex flex-col w-full">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-semibold text-gray-700">Text Size</span> -->
+                        <!-- Close button for mobile/smaller screens -->
+                        <!-- <button id="closeAccessibilityPanel" 
+                                class="sm:hidden text-gray-400 hover:text-gray-600 text-sm">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center justify-center sm:justify-start gap-1 mb-3">
+                        <button onclick="changeTextSize('small')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A-</button>
+                        <button onclick="changeTextSize('normal')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 active px-2 py-1 rounded">A</button>
+                        <button onclick="changeTextSize('large')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A+</button>
+                        <button onclick="changeTextSize('xlarge')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A++</button>
+                        <button onclick="changeTextSize('xxlarge')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A+++</button>
+                    </div>
+                </div>
+                <div class="flex flex-col w-full">
+                    <span class="text-xs font-semibold text-gray-700 mb-2">Language</span>
+                    <select onchange="changeLanguage(this.value)" class="language-select w-full p-2 border border-gray-300 rounded-lg bg-white text-sm">
+                        <option value="en">English</option>
+                        <option value="ha">Hausa</option>
+                        <option value="yo">Yoruba</option>
+                        <option value="ig">Igbo</option>
+                        <option value="fr">Français</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+    <!-- Header -->
+    <!-- <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div  class="flex items-center justify-between h-20">
+                <button onclick="changePage('home')" class="flex items-center space-x-3 cursor-pointer">
+                    <div class="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center shadow-lg">
+                        <i class="fas fa-plane text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 id="top" class="text-2xl font-bold text-gradient ">ACHRAMS</h1>
+                        <p class="text-xs text-gray-600">Official Airport Car Hire</p>
+                    </div>
+                </button>
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <button onclick="changePage('home')" class="font-medium text-gray-700 hover:text-emerald-600 current-page">Home</button>
+                    <a href="#features" class="text-gray-700 hover:text-emerald-600 font-medium">Features</a>
+                    <a href="#how-it-works" class="text-gray-700 hover:text-emerald-600 font-medium">How It Works</a>
+                    <a href="#airports" class="text-gray-700 hover:text-emerald-600 font-medium">Airports</a>
+                    <a href="#faqs" class="no-decoration"> 
+                        <button type="button" onclick="changePage('faqs')" class="text-gray-700 hover:text-emerald-600 font-medium">FAQs</button>
+                    </a>
+                    
+                    <button onclick="changePage('home')" class="px-6 py-2.5 bg-gradient-primary text-white rounded-xl hover:shadow-lg font-medium flex items-center space-x-2">
+                        <span>Book Now</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </button>
+                </nav>
+                <button id="mobile-menu-button" class="lg:hidden p-2 text-gray-700 hover:bg-emerald-50 rounded-lg">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div> -->
+
+
+        <!-- Mobile Menu -->
+        <!-- <div id="mobile-menu" class="mobile-menu md:hidden py-4 border-t border-gray-100">
+            <nav class="flex flex-col space-y-4 px-4">
+                <button onclick="changePage('home'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">Home</button>
+                <a href="#features" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2">Features</a>
+                <a href="#how-it-works" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2">How It Works</a>
+                <a href="#airports" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2">Airports</a>
+                 <a href="#faqs" class="no-decoration"> 
+                        <button type="button" onclick="changePage('faqs'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">FAQs</button>
+                    </a>
+
+                    <a href="#privacy" class="no-decoration"> 
+                        <button onclick="changePage('privacy'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">Privacy</button>
+                    </a>
+                    
+                    <a href="#terms" class="no-decoration"> 
+
+                        <button onclick="changePage('terms'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">Terms</button>
+
+                    </a>  
+            </nav>
+        </div>
+    </header> -->
