@@ -1,104 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACHRAMS - Official FAAN-Approved Airport Car Hire Service</title>
     <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://achram-seven.vercel.app/"> <!-- Replace with your actual domain -->
-<meta property="og:title" content="ACHRAMS - Official FAAN-Approved Airport Car Hire Service">
-<meta property="og:description" content="Your Safe, Reliable Airport Car hire Service. Official FAAN-approved car hire service with transparent pricing. Book your ride with our secure QR code system.">
-<meta property="og:image" content="og.svg"> <!-- Placeholder representing the logo -->
-<meta property="og:image:alt" content="ACHRAMS Logo - Plane Icon in Gradient Square">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://achram-seven.vercel.app/"> <!-- Replace with your actual domain -->
+    <meta property="og:title" content="ACHRAMS - Official FAAN-Approved Airport Car Hire Service">
+    <meta property="og:description"
+        content="Your Safe, Reliable Airport Car hire Service. Official FAAN-approved car hire service with transparent pricing. Book your ride with our secure QR code system.">
+    <meta property="og:image" content="og.svg"> <!-- Placeholder representing the logo -->
+    <meta property="og:image:alt" content="ACHRAMS Logo - Plane Icon in Gradient Square">
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://achram-seven.vercel.app/"> <!-- Replace with your actual domain -->
-<meta name="twitter:title" content="ACHRAMS - Official FAAN-Approved Airport Car Hire Service">
-<meta name="twitter:description" content="Your Safe, Reliable Airport Car Hire Service. Official FAAN-approved car hire service with transparent pricing.">
-<meta name="twitter:image" content="og.svg"> <!-- Placeholder representing the logo -->
-<meta name="twitter:image:alt" content="ACHRAMS Logo - Plane Icon in Gradient Square">
-<script src="https://cdn.tailwindcss.com"></script>
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://achram-seven.vercel.app/"> <!-- Replace with your actual domain -->
+    <meta name="twitter:title" content="ACHRAMS - Official FAAN-Approved Airport Car Hire Service">
+    <meta name="twitter:description"
+        content="Your Safe, Reliable Airport Car Hire Service. Official FAAN-approved car hire service with transparent pricing.">
+    <meta name="twitter:image" content="og.svg"> <!-- Placeholder representing the logo -->
+    <meta name="twitter:image:alt" content="ACHRAMS Logo - Plane Icon in Gradient Square">
+    <script src="https://cdn.tailwindcss.com"></script>
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary-gradient: linear-gradient(135deg, #059669 0%, #0d9488 100%);
             --secondary-gradient: linear-gradient(135deg, #0d9488 0%, #0891b2 100%);
         }
+
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #f9fafb 0%, #d1fae5 50%, #ccfbf1 100%);
             min-height: 100vh;
         }
-        h1, h2, h3, h4, h5, h6 {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: 'Montserrat', sans-serif;
         }
+
         .text-gradient {
             background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
         .bg-gradient-primary {
             background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
         }
+
         .bg-gradient-secondary {
             background: linear-gradient(135deg, #0d9488 0%, #0891b2 100%);
         }
+
         .hero-bg {
             background-image: url('https://placehold.co/1200x800/059669/FFFFFF?text=Airport+View');
             background-size: cover;
             background-position: center;
         }
+
         .hero-bg-2 {
             background-image: url('https://placehold.co/1200x800/0d9488/FFFFFF?text=City+Landscape');
             background-size: cover;
             background-position: center;
         }
+
         .hero-bg-3 {
             background-image: url('https://placehold.co/1200x800/0891b2/FFFFFF?text=Taxi+Service');
             background-size: cover;
             background-position: center;
         }
+
         .hero-bg-4 {
             background-image: url('https://placehold.co/1200x800/0f766e/FFFFFF?text=Safe+Travel');
             background-size: cover;
             background-position: center;
         }
+
         .hero-bg-5 {
             background-image: url('https://placehold.co/1200x800/0e7490/FFFFFF?text=Airport+Pickup');
             background-size: cover;
             background-position: center;
         }
+
         .hero-bg-6 {
             background-image: url('https://placehold.co/1200x800/0c4a6e/FFFFFF?text=Reliable+Service');
             background-size: cover;
             background-position: center;
         }
+
         .feature-card {
             transition: all 0.3s ease;
         }
+
         .feature-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
+
         .step-card {
             transition: all 0.3s ease;
         }
+
         .step-card:hover {
             transform: translateY(-5px);
         }
+
         .testimonial-slide {
             display: none;
         }
+
         .testimonial-slide.active {
             display: block;
         }
-        
+
         /**.hero-image {
             position: absolute;
             top: 0;
@@ -125,79 +152,84 @@
         **/
 
         /* Enhanced hero image styles for maximum visibility */
-.hero-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-    filter: brightness(1.1) contrast(1.1) saturate(1.1);
-}
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            filter: brightness(1.1) contrast(1.1) saturate(1.1);
+        }
 
-.hero-image.active {
-    opacity: 1;
-}
+        .hero-image.active {
+            opacity: 1;
+        }
 
-/* Enhanced gradient overlay for better text contrast */
-    .hero-gradient-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-            135deg,
-            rgba(0, 0, 0, 0.3) 0%,
-            rgba(0, 0, 0, 0.1) 40%,
-            rgba(0, 0, 0, 0.5) 100%
-        );
-    }
+        /* Enhanced gradient overlay for better text contrast */
+        .hero-gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg,
+                    rgba(0, 0, 0, 0.3) 0%,
+                    rgba(0, 0, 0, 0.1) 40%,
+                    rgba(0, 0, 0, 0.5) 100%);
+        }
 
-    /* Alternative overlay class for more aggressive contrast */
-    .hero-strong-overlay {
-        background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.2) 0%,
-            rgba(0, 0, 0, 0.1) 30%,
-            rgba(0, 0, 0, 0.6) 100%
-        );
-    }
+        /* Alternative overlay class for more aggressive contrast */
+        .hero-strong-overlay {
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.2) 0%,
+                    rgba(0, 0, 0, 0.1) 30%,
+                    rgba(0, 0, 0, 0.6) 100%);
+        }
+
         .faq-item {
             transition: all 0.3s ease;
         }
+
         .faq-item.active {
             border-color: #059669;
         }
+
         .scroll-header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
+
         .mobile-menu {
             display: none;
         }
+
         .mobile-menu.active {
             display: block;
         }
+
         .hero-image-container {
             position: relative;
             height: 100vh;
             overflow: hidden;
         }
+
         .stats-icon {
             width: 20px;
             height: 20px;
         }
+
         .text-gradient-stats {
             background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
         .testimonial-indicator {
             width: 12px;
             height: 12px;
@@ -205,27 +237,34 @@
             background-color: #d1d5db;
             transition: all 0.3s ease;
         }
+
         .testimonial-indicator.active {
             background-color: #059669;
             width: 32px;
         }
+
         .airport-status-available {
             background-color: #dcfce7;
             color: #166534;
         }
+
         .airport-status-soon {
             background-color: #ffedd5;
             color: #c2410c;
         }
+
         .pricing-card {
             transition: all 0.3s ease;
         }
+
         .pricing-card:hover {
             transform: translateY(-5px);
         }
+
         .footer-gradient {
             background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
         }
+
         .accessibility-controls {
             position: fixed;
             top: 20px;
@@ -236,125 +275,140 @@
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             padding: 16px;
         }
+
         .text-size-btn {
             padding: 4px 8px;
             margin: 0 2px;
             border-radius: 6px;
             transition: all 0.2s ease;
         }
+
         .text-size-btn.active {
             background: #059669;
             color: white;
         }
+
         .language-select {
             padding: 6px 12px;
             border-radius: 6px;
             border: 1px solid #d1d5db;
             background: white;
         }
+
         .current-page {
             color: #059669 !important;
         }
 
         /* Add these styles to your existing CSS */
-.accessibility-panel {
-  /* Start off-screen on mobile or just above header */
-  top: calc(5rem + 10px); /* Adjust based on your header height */
-}
+        .accessibility-panel {
+            /* Start off-screen on mobile or just above header */
+            top: calc(5rem + 10px);
+            /* Adjust based on your header height */
+        }
 
-.accessibility-toggle-btn {
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
+        .accessibility-toggle-btn {
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
 
-.accessibility-toggle-btn:hover,
-.accessibility-toggle-btn:focus {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  transform: scale(1.05);
-}
+        .accessibility-toggle-btn:hover,
+        .accessibility-toggle-btn:focus {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: scale(1.05);
+        }
 
-.accessibility-controls-container {
-  /* Add a subtle shadow for better depth */
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-}
+        .accessibility-controls-container {
+            /* Add a subtle shadow for better depth */
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+        }
 
-.accessibility-controls-container.active {
-  max-height: 300px; /* Adjust based on content height */
-  opacity: 1;
-  transform: translateY(0);
-  overflow: visible;
-}
+        .accessibility-controls-container.active {
+            max-height: 300px;
+            /* Adjust based on content height */
+            opacity: 1;
+            transform: translateY(0);
+            overflow: visible;
+        }
 
-.language-select {
-  font-size: 0.875rem; /* text-sm */
-}
+        .language-select {
+            font-size: 0.875rem;
+            /* text-sm */
+        }
     </style>
 </head>
+
 <body class="min-h-screen bg-gradient-to-br from-gray-50 via-emerald-50/20 to-teal-50/30 text-base overflow-x-hidden">
     <!-- Header -->
     <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div  class="flex items-center justify-between h-20">
-                <button onclick="changePage('home')" class="flex items-center space-x-3 cursor-pointer">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" onclick="changePage('home')" class="flex items-center space-x-3 cursor-pointer">
                     <div class="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center shadow-lg">
                         <img src="logo" alt="logo" width="25px" height="25px">
                     </div>
                     <div class=" text-left flex flex-col items-start">
                         <h1 id="top" class="text-2xl font-bold text-gradient " data-i18n="achrams">ACHRAMS</h1>
-                        <p class="text-xs text-gray-600" data-i18n="official_airport_car_hire">Official Airport Car Hire</p>
+                        <p class="text-xs text-gray-600" data-i18n="official_airport_car_hire">Official Airport Car Hire
+                        </p>
                     </div>
-                </button>
+                </a>
                 <!-- Updated Navigation Block -->
                 <nav class="hidden lg:flex items-center space-x-8">
-                    <button onclick="changePage('home')" class="font-medium text-gray-700 hover:text-emerald-600 current-page"
-                    data-i18n="home"
-                    >Home</button>
-                    <a href="#features" class="text-gray-700 hover:text-emerald-600 font-medium"
-                    data-i18n="features"
-                    >Features</a>
-                    <a href="#how-it-works" class="text-gray-700 hover:text-emerald-600 font-medium"
-                    data-i18n="how_it_works"
-                    >How It Works</a>
-                    <a href="#airports" class="text-gray-700 hover:text-emerald-600 font-medium"
-                    data-i18n="airports"
-                    >Airports</a>
+                    <a href="index.html" onclick="changePage('home')"
+                        class="font-medium text-gray-700 hover:text-emerald-600 current-page" data-i18n="home">Home</a>
+                    <a href="index.html#features" class="text-gray-700 hover:text-emerald-600 font-medium"
+                        data-i18n="features">Features</a>
+                    <a href="index.html#how-it-works" class="text-gray-700 hover:text-emerald-600 font-medium"
+                        data-i18n="how_it_works">How It Works</a>
+                    <a href="index.html#airports" class="text-gray-700 hover:text-emerald-600 font-medium"
+                        data-i18n="airports">Airports</a>
                     <!-- <a href="#faqs" class="no-decoration"> -->
-                        <a  href="faq.html"  class="text-gray-700 hover:text-emerald-600 font-medium no-decoration"
-                        data-i18n="faqs"
-                        >FAQs</a>
+                    <a href="faq.html" class="text-gray-700 hover:text-emerald-600 font-medium no-decoration"
+                        data-i18n="faqs">FAQs</a>
                     <!-- </a> -->
                     <!-- Accessibility Controls Container -->
                     <div class="relative" id="accessibility-nav-container">
                         <!-- Accessibility Toggle Button -->
-                        <button id="accessibilityNavToggle" type="button" class="font-medium text-gray-700 hover:text-emerald-600 flex items-center space-x-1 group">
-                            <i class="fas fa-universal-access"></i>
-                            <span class="group-hover:text-emerald-600"
+                        <button id="accessibilityNavToggle" type="button"
+                            class="font-medium text-gray-700 hover:text-emerald-600 flex items-center space-x-1 group">
+                            <!-- <i class="fas fa-universal-access"></i> -->
+                            <!-- <span class="group-hover:text-emerald-600"
                             data-i18n="accessibility"
-                            >Accessibility</span>
+                            >Accessibility</span> -->
+                            <i class="fas fa-font pr-2"></i> | <i class="fas fa-globe"></i>
+                            <span class="font-semibold" data-i18n="accessibility">EN</span>
+
                         </button>
                         <!-- Accessibility Controls Dropdown -->
-                        <div id="accessibilityNavControls" class="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-200 p-4 hidden z-[99] opacity-0 scale-95 transition-all duration-200 group-hover:opacity-100 group-hover:scale-100 group-hover:block">
+                        <div id="accessibilityNavControls"
+                            class="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-200 p-4 hidden z-[99] opacity-0 scale-95 transition-all duration-200 group-hover:opacity-100 group-hover:scale-100 group-hover:block">
                             <div class="flex flex-col gap-4">
                                 <div>
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="text-xs font-semibold text-gray-700">Text Size</span>
                                     </div>
                                     <div class="flex items-center justify-start gap-1">
-                                        <button onclick="changeTextSize('small')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A-</button>
-                                        <button onclick="changeTextSize('normal')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 active px-2 py-1 rounded">A</button>
-                                        <button onclick="changeTextSize('large')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A+</button>
-                                        <button onclick="changeTextSize('xlarge')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A++</button>
-                                        <button onclick="changeTextSize('xxlarge')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A+++</button>
+                                        <button onclick="changeTextSize('small')"
+                                            class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A-</button>
+                                        <button onclick="changeTextSize('normal')"
+                                            class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 active px-2 py-1 rounded">A</button>
+                                        <button onclick="changeTextSize('large')"
+                                            class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A+</button>
+                                        <button onclick="changeTextSize('xlarge')"
+                                            class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A++</button>
+                                        <button onclick="changeTextSize('xxlarge')"
+                                            class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A+++</button>
                                     </div>
                                 </div>
                                 <div>
                                     <span class="text-xs font-semibold text-gray-700 mb-2 block">Language</span>
-                                    <select onchange="changeLanguage(this.value)" class="language-select w-full p-2 border border-gray-300 rounded-lg bg-white text-sm">
+                                    <select onchange="changeLanguage(this.value)"
+                                        class="language-select w-full p-2 border border-gray-300 rounded-lg bg-white text-sm">
                                         <option value="en">English</option>
                                         <option value="ha">Hausa</option>
                                         <option value="yo">Yoruba</option>
@@ -365,10 +419,11 @@
                             </div>
                         </div>
                     </div>
-                    <button onclick="changePage('home')" class="px-6 py-2.5 bg-gradient-primary text-white rounded-xl hover:shadow-lg font-medium flex items-center space-x-2">
+                    <a href="https://app.achrams.com.ng" target="_blank" rel="noopener" onclick="changePage('home')"
+                        class="px-6 py-2.5 bg-gradient-primary text-white rounded-xl hover:shadow-lg font-medium flex items-center space-x-2">
                         <span data-i18n="book_now">Book Now</span>
                         <i class="fas fa-arrow-right text-xs"></i>
-                    </button>
+                    </a>
                 </nav>
                 <button id="mobile-menu-button" class="lg:hidden p-2 text-gray-700 hover:bg-emerald-50 rounded-lg">
                     <i class="fas fa-bars text-lg"></i>
@@ -378,65 +433,91 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu md:hidden py-4 border-t border-gray-100">
             <nav class="flex flex-col space-y-4 px-4">
-                <button onclick="changePage('home'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left" data-i18n="home">Home</button>
-                <a href="#features" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2" data-i18n="features">Features</a>
-                <a href="#how-it-works" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2" data-i18n="how_it_works">How It Works</a>
-                <a href="#airports" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2" data-i18n="airports">Airports</a>
-                 <a href="#faqs" class="no-decoration">
-                        <button type="button" onclick="changePage('faqs'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left" data-i18n="faqs">FAQs</button>
-                    </a>
-                    <!-- Mobile Accessibility Toggle -->
-                    <div class="pt-2 border-t border-gray-100">
-                        <button id="mobileAccessibilityToggle" type="button" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left w-full flex items-center space-x-2">
-                            <i class="fas fa-universal-access"></i>
-                            <span data-i18n="accessibility">Accessibility </span>
-                        </button>
-                    </div>
-                    <div id="mobileAccessibilityPanel" class="hidden mt-2 bg-gray-50 rounded-lg p-4">
-                        <div class="flex flex-col gap-4">
-                            <div>
-                                <div class="flex items-center justify-between mb-2">
-                                    <span class="text-xs font-semibold text-gray-700">Text Size</span>
-                                </div>
-                                <div class="flex items-center justify-start gap-1">
-                                    <button onclick="changeTextSize('small')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A-</button>
-                                    <button onclick="changeTextSize('normal')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 active px-2 py-1 rounded">A</button>
-                                    <button onclick="changeTextSize('large')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A+</button>
-                                    <button onclick="changeTextSize('xlarge')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A++</button>
-                                    <button onclick="changeTextSize('xxlarge')" class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A+++</button>
-                                </div>
+                <a href="index.html" onclick="changePage('home'); toggleMobileMenu()"
+                    class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left" data-i18n="home">Home</a>
+                <a href="index.html" class="text-gray-700 hover:text-emerald-600 font-medium" data-i18n="features"
+                    onclick="toggleMobileMenu()">Features</a>
+                <a href="index.html" class="text-gray-700 hover:text-emerald-600 font-medium" data-i18n="how_it_works"
+                    onclick="toggleMobileMenu()">How It Works</a>
+                <a href="index.html" class="text-gray-700 hover:text-emerald-600 font-medium" data-i18n="airports"
+                    onclick="toggleMobileMenu()">Airports</a>
+                <!-- <a href="#faqs" class="no-decoration"> -->
+                <a href="faq.html" class="text-gray-700 hover:text-emerald-600 font-medium no-decoration py-2"
+                    data-i18n="faqs" onclick="toggleMobileMenu()">FAQs</a>
+                <!-- Mobile Accessibility Toggle -->
+                <div class="pt-2 border-t border-gray-100">
+                    <button id="mobileAccessibilityToggle" type="button"
+                        class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left w-full flex items-center space-x-2"
+                        onclick="toggleMobileMenu()">
+                        <i class="fas fa-font pr-2"></i> | <i class="fas fa-globe"></i>
+                        <span class="font-semibold" data-i18n="accessibility">EN</span>
+                    </button>
+                </div>
+                <div id="mobileAccessibilityPanel" class="hidden mt-2 bg-gray-50 rounded-lg p-4">
+                    <div class="flex flex-col gap-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-semibold text-gray-700">Text Size</span>
                             </div>
-                            <div>
-                                <span class="text-xs font-semibold text-gray-700 mb-2 block">Language</span>
-                                <select onchange="changeLanguage(this.value)" class="language-select w-full p-2 border border-gray-300 rounded-lg bg-white text-sm">
-                                    <option value="en">English</option>
-                                    <option value="ha">Hausa</option>
-                                    <option value="yo">Yoruba</option>
-                                    <option value="ig">Igbo</option>
-                                    <option value="fr">Français</option>
-                                </select>
+                            <div class="flex items-center justify-start gap-1">
+                                <button onclick="changeTextSize('small')"
+                                    class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A-</button>
+                                <button onclick="changeTextSize('normal')"
+                                    class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 active px-2 py-1 rounded">A</button>
+                                <button onclick="changeTextSize('large')"
+                                    class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A+</button>
+                                <button onclick="changeTextSize('xlarge')"
+                                    class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A++</button>
+                                <button onclick="changeTextSize('xxlarge')"
+                                    class="text-size-btn text-xs bg-gray-100 text-gray-700 hover:bg-gray-200 px-2 py-1 rounded">A+++</button>
                             </div>
                         </div>
+                        <div>
+                            <span class="text-xs font-semibold text-gray-700 mb-2 block">Language</span>
+                            <select onchange="changeLanguage(this.value)"
+                                class="language-select w-full p-2 border border-gray-300 rounded-lg bg-white text-sm">
+                                <option value="en">English</option>
+                                <option value="ha">Hausa</option>
+                                <option value="yo">Yoruba</option>
+                                <option value="ig">Igbo</option>
+                                <option value="fr">Français</option>
+                            </select>
+                        </div>
                     </div>
-                    <a href="#privacy" class="no-decoration">
-                        <button onclick="changePage('privacy'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">Privacy</button>
-                    </a>
-                    <a href="#terms" class="no-decoration">
-                        <button onclick="changePage('terms'); toggleMobileMenu()" class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">Terms</button>
-                    </a>
+                </div>
+
+                <a href="https://app.achrams.com.ng" target="_blank" rel="noopener" onclick="changePage('home')" class="mt-4 w-full px-5 py-3 bg-gradient-to-r from-emerald-500 to-emerald-700 
+          text-white font-semibold rounded-xl shadow-lg transition 
+          active:scale-[0.98] flex items-center justify-center gap-2">
+                    <span data-i18n="book_now">Book Now</span>
+                    <i class="fas fa-arrow-right text-xs"></i>
+                </a>
+
+
+
+                <!-- <a href="#privacy" class="no-decoration">
+                    <button onclick="changePage('privacy'); toggleMobileMenu()"
+                        class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">Privacy</button>
+                </a>
+                <a href="#terms" class="no-decoration">
+                    <button onclick="changePage('terms'); toggleMobileMenu()"
+                        class="text-gray-700 hover:text-emerald-600 font-medium py-2 text-left">Terms</button>
+                </a> -->
             </nav>
         </div>
     </header>
 
 
 
-<section id="faq-page" class="pt-32 pb-20 px-4 ">
-        
+    <section id="faq-page" class="pt-32 pb-20 px-4 ">
+
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-12">
-                <h1 class="text-4xl font-bold text-gray-900 mb-4" data-i18n="frequently_asked_questions">Frequently Asked Questions</h1>
+                <h1 class="text-4xl font-bold text-gray-900 mb-4" data-i18n="frequently_asked_questions">Frequently
+                    Asked Questions</h1>
                 <span id="faqs"></span>
-                <p class="text-lg text-gray-600" data-i18n="find_answers">Find answers to common questions about ACHRAMS</p>
+                <p class="text-lg text-gray-600" data-i18n="find_answers">Find answers to common questions about ACHRAMS
+                </p>
             </div>
             <div class="space-y-6">
                 <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
@@ -445,80 +526,107 @@
                     </div>
                     <div class="p-6 space-y-4">
                         <div class="faq-item border border-gray-200 rounded-lg overflow-hidden">
-                            <button onclick="toggleFAQ(this)" class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
-                                <span class="font-semibold text-gray-900 text-left " data-i18n="getting_started_q1">What is ACHRAMS?</span>
+                            <button onclick="toggleFAQ(this)"
+                                class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <span class="font-semibold text-gray-900 text-left " data-i18n="getting_started_q1">What
+                                    is ACHRAMS?</span>
                                 <i class="fas fa-chevron-down text-gray-400 text-lg"></i>
                             </button>
                             <div class="px-6 py-4 bg-white hidden">
-                                <p class="text-gray-700 leading-relaxed" data-i18n="getting_started_a1">ACHRAMS is Nigeria's official FAAN-approved airport car hire service. We connect you with verified, licensed drivers at major Nigerian airports through our secure booking platform.</p>
+                                <p class="text-gray-700 leading-relaxed" data-i18n="getting_started_a1">ACHRAMS is
+                                    Nigeria's official FAAN-approved airport car hire service. We connect you with
+                                    verified, licensed drivers at major Nigerian airports through our secure booking
+                                    platform.</p>
                             </div>
                         </div>
                         <div class="faq-item border border-gray-200 rounded-lg overflow-hidden">
-                            <button onclick="toggleFAQ(this)" class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
-                                <span class="font-semibold text-gray-900 text-left" data-i18n="getting_started_q2">Which airports do you serve?</span>
+                            <button onclick="toggleFAQ(this)"
+                                class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <span class="font-semibold text-gray-900 text-left" data-i18n="getting_started_q2">Which
+                                    airports do you serve?</span>
                                 <i class="fas fa-chevron-down text-gray-400 text-lg"></i>
                             </button>
                             <div class="px-6 py-4 bg-white hidden">
-                                <p class="text-gray-700 leading-relaxed" data-i18n="getting_started_a2">We currently operate at: Murtala Muhammed Airport (Lagos), Nnamdi Azikiwe Airport (Abuja), Mallam Aminu Kano Airport (Kano), and Port Harcourt International Airport.</p>
+                                <p class="text-gray-700 leading-relaxed" data-i18n="getting_started_a2">We currently
+                                    operate at: Murtala Muhammed Airport (Lagos), Nnamdi Azikiwe Airport (Abuja), Mallam
+                                    Aminu Kano Airport (Kano), and Port Harcourt International Airport.</p>
                             </div>
                         </div>
                         <div class="faq-item border border-gray-200 rounded-lg overflow-hidden">
-                            <button onclick="toggleFAQ(this)" class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
-                                <span class="font-semibold text-gray-900 text-left" data-i18n="getting_started_q3">Is ACHRAMS safe?</span>
+                            <button onclick="toggleFAQ(this)"
+                                class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <span class="font-semibold text-gray-900 text-left" data-i18n="getting_started_q3">Is
+                                    ACHRAMS safe?</span>
                                 <i class="fas fa-chevron-down text-gray-400 text-lg"></i>
                             </button>
                             <div class="px-6 py-4 bg-white hidden">
-                                <p class="text-gray-700 leading-relaxed" data-i18n="getting_started_a3">Yes! All our drivers are FAAN-verified, background-checked, and licensed. Every trip includes real-time tracking and 24/7 emergency support.</p>
+                                <p class="text-gray-700 leading-relaxed" data-i18n="getting_started_a3">Yes! All our
+                                    drivers are FAAN-verified, background-checked, and licensed. Every trip includes
+                                    real-time tracking and 24/7 emergency support.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
                     <div class="bg-gradient-primary px-6 py-4">
                         <h2 class="text-2xl font-bold text-white" data-i18n="booking_title">Booking</h2>
                     </div>
                     <div class="p-6 space-y-4">
                         <div class="faq-item border border-gray-200 rounded-lg overflow-hidden">
-                            <button onclick="toggleFAQ(this)" class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
-                                <span class="font-semibold text-gray-900 text-left" data-i18n="booking_q1">How do I book a ride?</span>
+                            <button onclick="toggleFAQ(this)"
+                                class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <span class="font-semibold text-gray-900 text-left" data-i18n="booking_q1">How do I book
+                                    a ride?</span>
                                 <i class="fas fa-chevron-down text-gray-400 text-lg"></i>
                             </button>
                             <div class="px-6 py-4 bg-white hidden">
-                                <p class="text-gray-700 leading-relaxed" data-i18n="booking_a1">Three easy ways: 1) Scan QR codes at airport baggage claim areas, 2) Visit www.achrams.com.ng, 3) Call +234 800 ACHRAMS</p>
+                                <p class="text-gray-700 leading-relaxed" data-i18n="booking_a1">Three easy ways: 1) Scan
+                                    QR codes at airport baggage claim areas, 2) Visit www.achrams.com.ng, 3) Call +234
+                                    800 ACHRAMS</p>
                             </div>
                         </div>
                         <div class="faq-item border border-gray-200 rounded-lg overflow-hidden">
-                            <button onclick="toggleFAQ(this)" class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
-                                <span class="font-semibold text-gray-900 text-left" data-i18n="booking_q2">Do I need an account to book?</span>
+                            <button onclick="toggleFAQ(this)"
+                                class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <span class="font-semibold text-gray-900 text-left" data-i18n="booking_q2">Do I need an
+                                    account to book?</span>
                                 <i class="fas fa-chevron-down text-gray-400 text-lg"></i>
                             </button>
                             <div class="px-6 py-4 bg-white hidden">
-                                <p class="text-gray-700 leading-relaxed" data-i18n="booking_a2">No, you can book as a guest using QR codes. However, creating an account gives you faster checkout, trip history, and exclusive offers.</p>
+                                <p class="text-gray-700 leading-relaxed" data-i18n="booking_a2">No, you can book as a
+                                    guest using QR codes. However, creating an account gives you faster checkout, trip
+                                    history, and exclusive offers.</p>
                             </div>
                         </div>
                         <div class="faq-item border border-gray-200 rounded-lg overflow-hidden">
-                            <button onclick="toggleFAQ(this)" class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
-                                <span class="font-semibold text-gray-900 text-left" data-i18n="booking_q3">Can I book for someone else?</span>
+                            <button onclick="toggleFAQ(this)"
+                                class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <span class="font-semibold text-gray-900 text-left" data-i18n="booking_q3">Can I book
+                                    for someone else?</span>
                                 <i class="fas fa-chevron-down text-gray-400 text-lg"></i>
                             </button>
                             <div class="px-6 py-4 bg-white hidden">
-                                <p class="text-gray-700 leading-relaxed" data-i18n="booking_a3">Yes! Just provide their name, phone number, and flight details when booking.</p>
+                                <p class="text-gray-700 leading-relaxed" data-i18n="booking_a3">Yes! Just provide their
+                                    name, phone number, and flight details when booking.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="mt-12 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-8 border border-emerald-100">
+
+                <div
+                    class="mt-12 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-8 border border-emerald-100">
                     <div class="text-center">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Still Have Questions?</h3>
-                        <p class="text-gray-700 mb-6">We're here to help 24/7!</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="still_have_questions">Still Have Questions?</h3>
+                        <p class="text-gray-700 mb-6" data-i18n="were_here_to_help">We're here to help 24/7!</p>
                         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <a href="tel:+2348000000000" class="px-6 py-3 bg-gradient-primary text-white rounded-xl hover:shadow-lg font-semibold flex items-center space-x-2">
+                            <a href="tel:+2348000000000"
+                                class="px-6 py-3 bg-gradient-primary text-white rounded-xl hover:shadow-lg font-semibold flex items-center space-x-2">
                                 <i class="fas fa-phone"></i>
                                 <span>Call: +234 800 ACHRAMS</span>
                             </a>
-                            <a href="mailto:support@achrams.com.ng" class="px-6 py-3 bg-white text-gray-900 rounded-xl hover:shadow-lg font-semibold border border-gray-200 flex items-center space-x-2">
+                            <a href="mailto:support@achrams.com.ng"
+                                class="px-6 py-3 bg-white text-gray-900 rounded-xl hover:shadow-lg font-semibold border border-gray-200 flex items-center space-x-2">
                                 <i class="fas fa-envelope text-emerald-600"></i>
                                 <span>Email Support</span>
                             </a>
@@ -528,16 +636,17 @@
             </div>
         </div>
     </section>
-<!-- Footer -->
-  <footer id="contact" class="bg-white border-t border-gray-100 py-12 px-4">
+    <!-- Footer -->
+    <footer id="contact" class="bg-white border-t border-gray-100 py-12 px-4">
         <div class="max-w-6xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div class="md:col-span-2">
                     <div class="flex items-center space-x-3 mb-4">
-                         <div class="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center shadow-lg">
-                        <img src="logo" alt="logo" width="25px" height="25px">
-                    </div>
-                    <div>
+                        <div
+                            class="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center shadow-lg">
+                            <img src="logo" alt="logo" width="25px" height="25px">
+                        </div>
+                        <div>
                             <h3 class="text-xl font-bold text-gradient">ACHRAMS</h3>
                             <p class="text-xs text-gray-600">Official Airport Car Hire</p>
                         </div>
@@ -575,10 +684,10 @@
                 <p class="text-gray-600 text-sm">© 2024 ACHRAMS. All rights reserved.</p>
                 <div class="flex items-center space-x-6 mt-4 md:mt-0">
                     <!-- <button onclick="changePage('privacy')" class="text-gray-600 hover:text-emerald-600 text-sm">Privacy Policy</button> -->
-                     <a href="index.html" class=" no-underline text-gray-600 hover:text-emerald-600"> Home </a>
+                    <a href="index.html" class=" no-underline text-gray-600 hover:text-emerald-600"> Home </a>
                     <a href="faq.html" class="text-gray-600 hover:text-emerald-600">FAQs</a>
                     <a href="privacy.html" class="text-gray-600 hover:text-emerald-600 text-sm">Privacy Policy</a>
-                     <a href="TandC.html" class="text-gray-600 hover:text-emerald-600 text-sm">Terms & Conditions</a>
+                    <a href="TandC.html" class="text-gray-600 hover:text-emerald-600 text-sm">Terms & Conditions</a>
                     <!-- <button onclick="changePage('terms')" class="text-gray-600 hover:text-emerald-600 text-sm">Terms of Service</button> 
                      
                     <li><a href="#top" class="no-underline"><button onclick="changePage('home')" class="text-gray-600 hover:text-emerald-600"> Home </button></a></li>
@@ -589,7 +698,8 @@
         </div>
     </footer>
 
-<script src="translations.js" defer></script>
-<script src="scripts/script.js"></script>
+    <script src="translations.js" defer></script>
+    <script src="scripts/script.js"></script>
 </body>
+
 </html>

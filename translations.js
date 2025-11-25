@@ -14,7 +14,8 @@ const translations = {
     how_it_works: "How It Works",
     airports: "Airports",
     faqs: "FAQs",
-    accessibility: "Accessibility",
+    // accessibility: "Accessibility",
+    accessibility: "EN",
     book_now: "Book Now",
     scan_and_book_now: "Scan & Book Now",
     contact_support: "Contact Support",
@@ -80,6 +81,7 @@ const translations = {
     price_guarantee_desc: "No surge pricing. All fares in Naira (₦).",
 
     /* Testimonials */
+    introduction: "introduction",
     trusted_by_thousands: "Trusted by Thousands",
     join_satisfied_passengers: "Join satisfied passengers",
     testimonial_most_reliable: "Most reliable service in Nigeria.",
@@ -127,7 +129,7 @@ const translations = {
     device_info_desc: "Device Information: Device type, operating system, browser type, IP address",
     usage_data_desc: "Usage Data: Booking history, service preferences, app interactions",
     how_we_use_title: "How We Use Your Information",
-    service_delivery_desc: "<li>Process and manage your car hire bookings</li>, <li>connect you with verified drivers</li>, <li>provide real-time tracking and updates</li>, send booking confirmations and receipts.",
+    service_delivery_desc: "Process and manage your car hire bookings, connect you with verified drivers, provide real-time tracking and updates, send booking confirmations and receipts.",
     safety_security_desc: "Verify driver credentials with FAAN, monitor service quality and safety standards, investigate incidents or complaints, prevent fraud and unauthorized access.",
     service_delivery: "Service Delivery",
     process_bookings: "Process and manage your car hire bookings",
@@ -194,6 +196,7 @@ const translations = {
       "You are responsible for maintaining the confidentiality of your account credentials",
       "You must notify us immediately of any unauthorized access"
     ],
+    we_do_not_sell: "We do NOT sell your personal data to third parties.",
     account_responsibilities: "Account Responsibilities",
     account_responsibilities_desc: [
       "You are solely responsible for all activities under your account",
@@ -244,7 +247,8 @@ const translations = {
     ],
     consequences_of_violation: "Consequences of Violations",
     consequences_desc: "Violations may result in immediate trip termination, account suspension or permanent ban, legal action, and referral to law enforcement authorities.",
-    safety_security_title: "7. Safety and Security",
+    safety_security_title: " Safety and Security",
+    safety_security_titleTC: "7. Safety and Security",
     safety_security_desc_list: [
       "We partner only with FAAN‑verified drivers",
       "All drivers undergo background checks",
@@ -290,6 +294,26 @@ const translations = {
         email: "Email: safety@achrams.com.ng"
       }
     },
+
+    terms_intro_paragraph: 
+    "Welcome to ACHRAMS, the official FAAN-approved airport car hire service. These Terms and Conditions (\"Terms\") constitute a legally binding agreement between you (\"User,\" \"Passenger,\" or \"you\") and ACHRAMS Nigeria Limited.",
+
+  company_name_full: "ACHRAMS Nigeria Limited",
+  technology_partner: "Technology Partner: Excellian Technologies",
+
+  general_inquiries_label: "General Inquiries:",
+  general_inquiries_email: "Email: support@achrams.com.ng",
+  general_inquiries_phone: "Phone: +234 800 ACHRAMS",
+
+  legal_department_label: "Legal Department:",
+  legal_department_email: "Email: legal@achrams.com.ng",
+
+  safety_emergency_label: "Safety and Emergency:",
+  safety_hotline: "24/7 Hotline: +234 800 ACHRAMS (Option 1)",
+  safety_email: "Email: safety@achrams.com.ng",
+
+    still_have_questions: "Still Have Questions?",
+    were_here_to_help: "We're here to help 24/7!",
     acknowledgment_title: "Acknowledgment",
     acknowledgment_desc: "BY CLICKING \"I AGREE,\" SCANNING A QR CODE TO BOOK, OR USING OUR SERVICES, YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTOOD, AND AGREE TO BE BOUND BY THESE TERMS AND CONDITIONS.",
     available_in_languages: "Available in 5+ languages",
@@ -319,7 +343,9 @@ const translations = {
     how_it_works: "Yadda Ake Aiki",
     airports: "Filayen Jirgin Sama",
     faqs: "Tambayoyi",
-    accessibility: "Dacewa",
+    // accessibility: "Dacewa",
+    accessibility: "HA",
+
     book_now: "Yi Ajiyar Yanzu",
     scan_and_book_now: "Duba & Yi Ajiyar Yanzu",
     contact_support: "Tuntuɓi Tallafi",
@@ -332,7 +358,7 @@ const translations = {
     verified_drivers: "Direbobin da aka Tantance",
     major_airports: "Manyan Filayen Jirgin Sama",
     average_rating: "Matsakaicin Kimantawa",
-
+    we_do_not_sell: "BAN KASHE BAYANAN KU KU IDAN KOWA.",
     why_choose: "Me Yasa Za a Zaɓi ACHRAMS?",
     official_service: "Ayyuka na hukuma tare da tabbacin tsaro",
     faan_safety: "Tsaron FAAN",
@@ -387,7 +413,18 @@ const translations = {
 
     ready_for_better_experience: "Shirye don Ƙwarewa Mai Kyau?",
     book_your_next_ride: "Yi ajiyar tafiyarka na gaba a yau.",
-
+    introduction: "1. Gabatarwa",
+    terms_intro_paragraph: "Barka da zuwa ACHRAMS, sabis na kar na kari na FAAN da aka yarda. Wadannan Sharuddan da Sharaɗi (\"Sharuddan\") suna daidaita tsaran daidai tsakan ku (\"Mai amfani,\" \"Mai shigo,\" ko \"kai\") da ACHRAMS Najeriya Limited.",
+    company_name_full: "ACHRAMS Najeriya Limited",
+    technology_partner: "Mai Taimako na Teknoloji: Excellian Teknoloji",
+    general_inquiries_label: "Tambayoyi na Gaba:",
+    general_inquiries_email: "Imel: support@achrams.com.ng",
+    general_inquiries_phone: "Waya: +234 800 ACHRAMS",
+    legal_department_label: "Kungiyar Shari'a:",
+    legal_department_email: "Imel: legal@achrams.com.ng",
+    safety_emergency_label: "Kariya da Haɗari:",
+    safety_hotline: "Waya mai tsaye: +234 800 ACHRAMS (Zaɓi 1)",
+    safety_email: "Imel: safety@achrams.com.ng",
     frequently_asked_questions: "Tambayoyi Akai-Akai",
     find_answers: "Samo amsoshin tambayoyin game da ACHRAMS",
     getting_started: "Farawa",
@@ -548,7 +585,8 @@ const translations = {
     ],
     consequences_of_violation: "Sakamakon Take Ka’ida",
     consequences_desc: "Take ka’ida na iya samun sakamako kamar dakatar da tafiya nan take, dakatar da asusu ko har abada, matakin doka, da kai rahoto ga hukumomin tsaro.",
-    safety_security_title: "7. Tsaro da Aminci",
+    safety_security_title: " Tsaro da Aminci",
+    safety_security_titleTC: "7. Tsaro da Aminci",
     safety_security_desc_list: [
       "Muna haɗin gwiwa ne kawai da direbobin da FAAN ta tabbatar da su",
       "Dukkan direbobi suna ƙarƙashin binciken baya",
@@ -597,6 +635,8 @@ const translations = {
     acknowledgment_title: "Yarda / Amincewa",
     acknowledgment_desc: "TA DANNAN “INA YARDA,” LOKACIN DANNAN QR CODE DON AJIYA, KO YAYIN AMFANI DA SABISIN MU, KA YARDA CEWA KA KARANTA, KA FAHIMTA, KUMA KA YARDA DA WAƘANNAN SHARUƊƊA DA KA’IDOJI.",
     available_in_languages: "Ana samuwa a cikin harsuna 5+",
+    still_have_questions: "Har yanzu kana da tambayoyi?",
+    were_here_to_help: "Muna nan don taimaka 24/7!",
 
     contact_us: "Tuntuɓi Mu",
     available_in_languages: "Ana Samu a Harsuna 5+",
@@ -620,7 +660,9 @@ const translations = {
     how_it_works: "Bí Ó Ṣe N ṣiṣẹ́",
     airports: "Papa Ofurufu",
     faqs: "Àwọn ìbéèrè",
-    accessibility: "Irọrun",
+    // accessibility: "Irọrun",
+    accessibility: "YO",
+
     book_now: "Ìwé ìpèsè Bayi",
     scan_and_book_now: "Ṣàyẹ̀wò & Ìwé Bayi",
     contact_support: "Kan si Atilẹyin",
@@ -633,7 +675,7 @@ const translations = {
     verified_drivers: "Awakó tó jẹ́risi",
     major_airports: "Àwọn papa ofurufu pàtàkì",
     average_rating: "Ìyí iye apapọ",
-
+    we_do_not_sell: "A KÒ KÀÀRÀN ÀÀRÌN ÌMỌ̀RÀN RẸ FÚN ẸNI KÉKERÉ.",
     why_choose: "Kí nìdí tí ó fi yẹ kí o yan ACHRAMS?",
     official_service: "Iṣẹ́ ìjọba pẹ̀lú ìdánilẹ́kọ̀ọ́ ààbò",
     faan_safety: "Aabo FAAN",
@@ -679,13 +721,23 @@ const translations = {
     airport_to_express_price: "₦8,000 - ₦15,000",
     price_guarantee_title: "Ìdánáà-ẹri Owo",
     price_guarantee_desc: "Kò sí surge pricing. Gbogbo owo ni Naira (₦).",
-
+    terms_intro_paragraph: "Kaabo si ACHRAMS, sabis kar na kari ti FAAN fọwọsi. Awọn Ofin ati Kika wọnyi (\"Awọn Ofin\") jẹ isẹlẹ mẹta ti o wọpọ laarin ọ (\"Alábòkòòrì,\" \"Aláṣẹ,\" tabi \"rẹ\") ati ACHRAMS Nigeria Limited.",
+    company_name_full: "ACHRAMS Nigeria Limited",
+    technology_partner: "Alábòrí Tẹknùlùjì: Excellian Tẹknùlùjì",
+    general_inquiries_label: "Awọn Ibeere Gaba:",
+    general_inquiries_email: "Imeeli: support@achrams.com.ng",
+    general_inquiries_phone: "Ẹrọ: +234 800 ACHRAMS",
+    legal_department_label: "Ile Iṣẹ Aṣofin:",
+    legal_department_email: "Imeeli: legal@achrams.com.ng",
+    safety_emergency_label: "Aabo ati Iṣẹlẹ:",
+    safety_hotline: "Waya 24/7: +234 800 ACHRAMS (Aṣe 1)",
+    safety_email: "Imeeli: safety@achrams.com.ng",
     trusted_by_thousands: "A gbẹ́kẹ̀lé wa lọ́pọ̀",
     join_satisfied_passengers: "Darapọ̀ mọ́ àwọn arìnrìn-ajo to níyọ",
     testimonial_most_reliable: "Iṣẹ́ tó gbẹ́kẹ̀lé jùlọ ní Nàìjíríà.",
     testimonial_qr_brilliant: "Ẹ̀rọ QR jẹ́ amọ̀ràn.",
     testimonial_safe_transparent: "Aabo ati ṣíṣe.",
-
+    introduction: "1. Ifilọlẹ",
     ready_for_better_experience: "Ṣetan fun ìrírí tó dára ju?",
     book_your_next_ride: "Ìwé ìrìn rẹ tó nbọ loni.",
 
@@ -856,7 +908,8 @@ const translations = {
     ],
     consequences_of_violation: "Ìtẹ̀sí Àbájáde Ìjabọ́",
     consequences_desc: "Ìjabọ́ lè yọrí sí ìparí ìrìn‑ajo lẹ́sẹ̀kẹsẹ, ìdajọ́ àkọọ́lẹ̀ tàbí ìdákóṣe pẹ̀lú ìlànà ofin, ìgbéjọ́, àti ipe sí àwọn ọrọ̀ ọlọ́pàá.",
-    safety_security_title: "7. Ààbò ati Aabo",
+    safety_security_title: "Ààbò ati Aabo",
+    safety_security_titleTC: "7. Aabo ati Aabo",
     safety_security_desc_list: [
       "A kan bá awọn awakọ́ tí FAAN ti fọwọ́si pọ̀",
       "Gbogbo awakọ́ ni a ṣe àyẹ̀wò ìtàn ìbáṣẹ́sẹ́",
@@ -905,7 +958,8 @@ const translations = {
     acknowledgment_title: "Ìmúrasílẹ̀",
     acknowledgment_desc: "NÍPA TÍTẸ “MO GBA PẸ̀LÚ,” TÌTẸ KÓÒDÙ QR LÁTI ṢE ÌFIPAMỌ́, TÀBÍ LÍLO SÈ́VÌSÌ WA, O JẸ́WỌ́ PÉ O TI KA, O YE, ATI PE O GBA LATI DÁ ÀWỌN OFIN YÌÍ MULẸ̀.",
     available_in_languages: "Wà ní èdè 5+",
-    
+    still_have_questions: "Ṣe o tun ní àwọn ìbéèrè?",
+    were_here_to_help: "A wà níbí láti ràn ọ́ lọ́wọ́ 24/7!",
     contact_us: "Kan si wa",
     available_in_languages: "Wa ni awọn ede 5+",
     general_inquiries: "Awọn ibeere Gbogbogbo",
@@ -928,7 +982,9 @@ const translations = {
     how_it_works: "Otu Ọ Si Arụ Ọrụ",
     airports: "Ọgbọ elu",
     faqs: "Ajụjụ a na-ajụkarị",
-    accessibility: "Nchekwa",
+    // accessibility: "Nchekwa",
+    accessibility: "IG",
+
     book_now: "Zụọ Ugbu a",
     scan_and_book_now: "Lelee & Zụta Ugbu a",
     contact_support: "Kpọtụrụ Nkwado",
@@ -941,7 +997,7 @@ const translations = {
     verified_drivers: "Ụgbọala ndị e nyochachara",
     major_airports: "Ụgbọ elu buru ibu",
     average_rating: "Ogozizizizizi",
-
+    we_do_not_sell: "ANYI AGHAGHI IDOCHI OZI GỊ N'ENYE NDỊ ỌZỌ.",
     why_choose: "Gịnị Mere I Ji Họrọ ACHRAMS?",
     official_service: "Ọrụ gọọmenti nwere nchebe a kwadoro",
     faan_safety: "Nchedo FAAN",
@@ -956,7 +1012,7 @@ const translations = {
     multilingual_desc: "Asụsụ 5 dị.",
     secure_pay: "Nkwụnye ego echekwara",
     secure_pay_desc: "Kaatị na mobile money.",
-
+    introduction: "1. Mmalite",
     how_to_book_title: "Otu esi zụta ụgbọ ala gị",
     how_to_book_sub: "Nweta ịrụ ụgbọ ala gị n'ime nzọụkwụ 4 dị mfe",
     step_01: "01",
@@ -996,7 +1052,17 @@ const translations = {
 
     ready_for_better_experience: "Kwadebe maka ahụmịhe ka mma?",
     book_your_next_ride: "Zụọ ụgbọ ala gị na-esote taa.",
-
+    terms_intro_paragraph: "Nabata na ACHRAMS, sabis kar na kari ti FAAN kwenyere. Ndị a na ha (\"Ndị a\") bụ nsona ike na enwe dị ka gị (\"Onye ojiji,\" \"Onye nọrọ,\" ma ọ bụ \"gị\") na ACHRAMS Nigeria Limited.",
+    company_name_full: "ACHRAMS Nigeria Limited",
+    technology_partner: "Onye Ngosipụta Teknụzụ: Excellian Teknụzụ",
+    general_inquiries_label: "Ajụjụ Gaba:",
+    general_inquiries_email: "Ozi Emeil: support@achrams.com.ng",
+    general_inquiries_phone: "Ekwentị: +234 800 ACHRAMS",
+    legal_department_label: "Ụlọọrụ Aha:",
+    legal_department_email: "Ozi Emeil: legal@achrams.com.ng",
+    safety_emergency_label: "Nche na Mmetụ:",
+    safety_hotline: "Waya 24/7: +234 800 ACHRAMS (Nọmba 1)",
+    safety_email: "Ozi Emeil: safety@achrams.com.ng",
     frequently_asked_questions: "Ajụjụ a na-ajụkarị",
     find_answers: "Chọta azịza maka ajụjụ gbasara ACHRAMS",
     getting_started: "Malite",
@@ -1165,7 +1231,8 @@ const translations = {
     ],
     consequences_of_violation: "Ụzọ Mmejọ ga-esi gosi",
     consequences_desc: "Mmejọ nwere ike bute nkwụsị njem ozugbo, ngwụcha akaụntụ ma ọ bụ igbochi ya ruo mgbe ebighị ebi, mmepe iwu, na iziga okwu ahụ na ndị ọrụ iwu.",
-    safety_security_title: "7. Nchebe na Nchekwa",
+    safety_security_title: "Nchebe na Nchekwa",
+    safety_security_titleTC: "7. Nchebe na Nchekwa",
     safety_security_desc_list: [
       "Anyị na-ejikọ naanị na ndị ọkwọ ụgbọala FAAN kwadoro",
       "A na-enyocha ndị ọkwọ ụgbọala niile maka ihe omimi",
@@ -1211,6 +1278,8 @@ const translations = {
         email: "E‑mail: safety@achrams.com.ng"
       }
     },
+    still_have_questions: "Ị ka nwere ajụjụ?",
+    were_here_to_help: "Anyị nọ ebe a iji nyere gị aka 24/7!",
     acknowledgment_title: "Nkwenye / Ikwe",
     acknowledgment_desc: "SITE NA PỊA “AMACHI,” ṢÀWỌ́DÙ QR LÁTI ṢE ÌFIPAMỌ́, TẠ́BÍ LÍLO SÈ́VÌSÌ WA, Ị NA-EKWETA NA Ị GỤRỤ, GHỌTARA, MA KWETA ITI OFIN & ÌWA YI NA Ọ̀NỌ̀.",  
     available_in_languages: "Ndị dị na asụsụ 5+",
@@ -1236,7 +1305,8 @@ const translations = {
     how_it_works: "Comment ça marche",
     airports: "Aéroports",
     // faqs: "FAQ",
-    accessibility: "Accessibilité",
+    // accessibility: "Accessibilité",
+    accessibility: "FR",
     book_now: "Réserver",
     scan_and_book_now: "Scanner et réserver",
     contact_support: "Contacter le support",
@@ -1249,7 +1319,7 @@ const translations = {
     verified_drivers: "Chauffeurs vérifiés",
     major_airports: "Principaux aéroports",
     average_rating: "Note moyenne",
-
+    we_do_not_sell: "NOUS NE VENDONS PAS VOS DONNÉES PERSONNELLES À DES TIERS.",
     why_choose: "Pourquoi choisir ACHRAMS ?",
     official_service: "Service officiel avec sécurité garantie",
     faan_safety: "Sécurité FAAN",
@@ -1264,7 +1334,7 @@ const translations = {
     multilingual_desc: "5 langues disponibles.",
     secure_pay: "Paiement sécurisé",
     secure_pay_desc: "Cartes et mobile money.",
-
+    introduction: "1. Introduction",
     how_to_book_title: "Comment réserver votre course",
     how_to_book_sub: "Obtenez votre location en 4 étapes simples",
     step_01: "01",
@@ -1295,7 +1365,8 @@ const translations = {
     airport_to_express_price: "₦8,000 - ₦15,000",
     price_guarantee_title: "Garantie de prix",
     price_guarantee_desc: "Pas de tarification dynamique. Tous les tarifs en Naira (₦).",
-
+    still_have_questions: "Vous avez encore des questions ?",
+    were_here_to_help: "Nous sommes là pour vous aider 24h/24 et 7j/7 !",
     trusted_by_thousands: "Approuvé par des milliers",
     join_satisfied_passengers: "Rejoignez les passagers satisfaits",
     testimonial_most_reliable: "Service le plus fiable au Nigéria.",
@@ -1321,7 +1392,18 @@ const translations = {
     booking_a2: "Non, vous pouvez réserver en tant qu'invité en utilisant des QR. Cependant, créer un compte vous donne un paiement plus rapide, l'historique des trajets et des offres exclusives.",
     booking_q3: "Puis-je réserver pour quelqu'un d'autre ?",
     booking_a3: "Oui ! Fournissez simplement leur nom, numéro de téléphone et détails du vol lors de la réservation.",
+    terms_intro_paragraph: "Bienvenue sur ACHRAMS, le service officiel de location de voitures aux aéroports approuvé par la FAAN. Les présentes Conditions Générales constituent un accord juridiquement contraignant entre vous (\"Utilisateur\", \"Passager\" ou \"vous\") et ACHRAMS Nigeria Limited.",
 
+    company_name_full: "ACHRAMS Nigeria Limited",
+    technology_partner: "Partenaire Technologique: Excellian Technologies",
+    general_inquiries_label: "Demandes Générales:",
+    general_inquiries_email: "Email: support@achrams.com.ng",
+    general_inquiries_phone: "Téléphone: +234 800 ACHRAMS",
+    legal_department_label: "Département Juridique:",
+    legal_department_email: "Email: legal@achrams.com.ng",
+    safety_emergency_label: "Sécurité et Urgence:",
+    safety_hotline: "Ligne d'assistance 24/7: +234 800 ACHRAMS (Option 1)",
+    safety_email: "Email: safety@achrams.com.ng",
     privacy_policy_title: "Politique de confidentialité ACHRAMS",
     privacy_policy_effective: "Date d'entrée en vigueur : 3 novembre 2024 | Dernière mise à jour : 3 novembre 2024",
     privacy_intro: "ACHRAMS (\"nous\") s'engage à protéger votre vie privée et vos données conformément au Nigeria Data Protection Regulation (NDPR) 2019 et autres lois applicables.",
@@ -1474,7 +1556,8 @@ const translations = {
     ],
     consequences_of_violation: "Conséquences des Violations",
     consequences_desc: "Les violations peuvent entraîner l’annulation immédiate du trajet, la suspension ou l’interdiction permanente du compte, des poursuites légales et une orientation vers les autorités compétentes.",
-    safety_security_title: "7. Sécurité",
+    safety_security_title: "Sécurité",
+    safety_security_titleTC: "7. Sécurité",
     safety_security_desc_list: [
       "Nous ne travaillons qu’avec des conducteurs vérifiés par la FAAN",
       "Tous les conducteurs subissent des vérifications d’antécédents",
@@ -1609,18 +1692,133 @@ function applyTranslations(lang) {
 }
 
 
-function changeLanguage(lang) {
-  if (!translations[lang]) {
-    console.warn("Language not found:", lang);
-    lang = "en";
-  }
-  applyTranslations(lang);
-  localStorage.setItem("achrams_lang", lang);
+// function changeLanguage(lang) {
+//   if (!translations[lang]) {
+//     console.warn("Language not found:", lang);
+//     lang = "en";
+//   }
+//   applyTranslations(lang);
+//   localStorage.setItem("achrams_lang", lang);
 
-  // If you want to also update the <select> value (if language selector uses data-i18n)
-  const sel = document.querySelector("select.language-select");
-  if (sel) sel.value = lang;
+//   // If you want to also update the <select> value (if language selector uses data-i18n)
+//   const sel = document.querySelector("select.language-select");
+//   if (sel) sel.value = lang;
+// }
+
+// Add this at the top of your translations.js file
+// let currentLanguage = localStorage.getItem("achrams_lang") || "en";
+
+// Function to fetch and display airports
+// Function to fetch and display airports
+async function loadAirports() {
+    try {
+        const response = await fetch('https://api.achrams.com.ng/v1/airports/public');
+        const result = await response.json();
+        
+        // Extract the airports array from the response
+        const airports = result.data || [];
+        
+        const container = document.getElementById('airports-container');
+        
+        if (airports.length === 0) {
+            container.innerHTML = '<p class="text-center text-gray-600 col-span-full">No airports available at the moment.</p>';
+            return;
+        }
+        
+        let html = '';
+        airports.forEach(airport => {
+            // Map the API fields to what we expect
+            const name = airport.name.replace(' International Airport', '');
+            const code = airport.codename;
+            const fullName = airport.name; // Keep the full name for the description
+            const isAvailable = airport.is_active; // Use is_active instead of is_available
+            const status = isAvailable ? 'available' : 'soon';
+            const statusClass = isAvailable ? 'airport-status-available' : 'airport-status-soon';
+            
+            html += `
+                <div class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all">
+                    <div class="flex items-start justify-between mb-4">
+                        <i class="fas fa-plane text-emerald-600 text-xl"></i>
+                        <span class="px-3 py-1 rounded-full text-xs font-semibold ${statusClass}"
+                            data-i18n="${status}">${status}</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">${name} (${code})</h3>
+                    <p class="text-gray-600">${fullName}</p>
+                </div>
+            `;
+        });
+        
+        container.innerHTML = html;
+        
+        // Apply translations to the newly added content
+        applyTranslations(currentLanguage);
+    } catch (error) {
+        console.error('Error fetching airports:', error);
+        document.getElementById('airports-container').innerHTML = 
+            '<p class="text-center text-red-600 col-span-full">Failed to load airports. Please try again later.</p>';
+    }
 }
+
+// Updated changeLanguage function
+function changeLanguage(lang) {
+    if (!translations[lang]) {
+        console.warn("Language not found:", lang);
+        lang = "en";
+    }
+    currentLanguage = lang; // Update the global variable
+    applyTranslations(lang);
+    localStorage.setItem("achrams_lang", lang);
+
+    // If you want to also update the <select> value (if language selector uses data-i18n)
+    const sel = document.querySelector("select.language-select");
+    if (sel) sel.value = lang;
+    
+    // Reload airports to update status translations
+    if (typeof loadAirports === 'function') {
+        loadAirports();
+    }
+}
+
+// Load airports when page loads
+// Function to fetch and display stats
+async function loadStats() {
+    try {
+        const response = await fetch('https://api.achrams.com.ng/v1/reports/public/stats');
+        const result = await response.json();
+        const stats = result.data || {};
+        
+        // Update the stats with actual data
+        document.getElementById('passenger-count').textContent = formatNumber(stats.passenger_count || 0);
+        document.getElementById('driver-count').textContent = formatNumber(stats.driver_count || 0);
+        document.getElementById('airport-count').textContent = formatNumber(stats.airport_count || 0);
+        
+        // Format rating - if null, show 0.0
+        const rating = stats.average_rating !== null ? stats.average_rating.toFixed(1) : '0.0';
+        document.getElementById('rating-count').textContent = rating;
+        
+    } catch (error) {
+        console.error('Error fetching stats:', error);
+        // Keep default values or show error
+    }
+}
+
+// Helper function to format numbers with K for thousands
+function formatNumber(num) {
+    if (num >= 1000) {
+        return (num / 1000).toFixed(1) + 'K';
+    }
+    return num.toString();
+}
+
+// Call loadStats when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadStats();
+    // Also call it after airports load if needed
+    if (typeof loadAirports === 'function') {
+        loadAirports();
+    }
+});
+
 
 // Load saved language on startup
 document.addEventListener("DOMContentLoaded", () => {

@@ -1193,7 +1193,7 @@
 // State Management
 
 
-let currentLanguage = 'en'; // Default language
+let currentLanguage = localStorage.getItem("achrams_lang") || "en"; // Default language
 let textFontSize = 'text-base'; // Default text size
 let currentPage = 'home';
 let currentTestimonial = 0;
